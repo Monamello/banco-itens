@@ -1,4 +1,6 @@
 from django.contrib.auth.models import User, Group
+from .models import Item, Alternativa
+from .serializers import ItensSerializer, AlternativasSerializer
 from rest_framework import viewsets
 from itens.serializers import UserSerializer, GroupSerializer
 
@@ -17,3 +19,17 @@ class GroupViewSet(viewsets.ModelViewSet):
     """
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
+    
+class ItensViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows groups to be viewed or edited.
+    """
+    queryset = Item.objects.all()
+    serializer_class = ItensSerializer
+    
+class AlternativasViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows groups to be viewed or edited.
+    """
+    queryset = Alternativa.objects.all()
+    serializer_class = AlternativasSerializer
