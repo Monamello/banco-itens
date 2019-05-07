@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, Group
 
 class Alternativa(models.Model):
     texto = models.CharField(max_length=500)
