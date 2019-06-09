@@ -18,13 +18,14 @@ from django.urls import include, path
 from django.conf.urls.static import static
 from django.conf import settings
 from rest_framework import routers
-from itens import views
+from itens.views import ItensViewSet, AlternativasViewSet
+from accounts.views import UserViewSet, GroupViewSet
 
 router = routers.DefaultRouter()
-router.register(r'users', views.UserViewSet)
-router.register(r'groups', views.GroupViewSet)
-router.register(r'itens', views.ItensViewSet, base_name='Itens')
-router.register(r'alternativas', views.AlternativasViewSet, base_name='Alternativas')
+router.register(r'users', UserViewSet)
+router.register(r'groups', GroupViewSet)
+router.register(r'itens', ItensViewSet, base_name='Itens')
+router.register(r'alternativas', AlternativasViewSet, base_name='Alternativas')
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.

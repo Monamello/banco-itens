@@ -1,15 +1,14 @@
 
-# Created by https://www.gitignore.io/api/django,python
-# Edit at https://www.gitignore.io/?templates=django,python
+# Created by https://www.gitignore.io/api/linux,django,python,visualstudiocode
+# Edit at https://www.gitignore.io/?templates=linux,django,python,visualstudiocode
 
 ### Django ###
 *.log
 *.pot
-*.pyc
-__pycache__/
 local_settings.py
 db.sqlite3
 media
+
 
 # If your build process includes running collectstatic, then you probably don't need or want to include staticfiles/
 # in your Git repository. Update and uncomment the following line accordingly.
@@ -135,6 +134,21 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
+### Linux ###
+*~
+
+# temporary files which can be created if a process still has a handle open of a deleted file
+.fuse_hidden*
+
+# KDE directory preferences
+.directory
+
+# Linux trash folder which might appear on any partition or disk
+.Trash-*
+
+# .nfs files are created when an open file is removed but is still being accessed
+.nfs*
+
 ### Python ###
 # Byte-compiled / optimized / DLL files
 
@@ -190,4 +204,15 @@ dmypy.json
 
 # Pyre type checker
 
-# End of https://www.gitignore.io/api/django,python
+### VisualStudioCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+### VisualStudioCode Patch ###
+# Ignore all local history of files
+.history
+
+# End of https://www.gitignore.io/api/linux,django,python,visualstudiocode
