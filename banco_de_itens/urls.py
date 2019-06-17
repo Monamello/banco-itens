@@ -20,6 +20,7 @@ from django.conf import settings
 from rest_framework import routers
 from itens.views import ItensViewSet, AlternativasViewSet
 from accounts.views import UserViewSet, GroupViewSet
+from django.views.generic.base import TemplateView
 
 router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
@@ -30,7 +31,9 @@ router.register(r'alternativas', AlternativasViewSet, base_name='Alternativas')
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = [
-    path('', include(router.urls)),
+    #path('', include(router.urls)),
+    path('', TemplateView.as_view(template_name='home.html'), name='home'),
     path('admin/', admin.site.urls),
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+    path('accounts/', include('django.contrib.auth.urls')),
+    #path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
