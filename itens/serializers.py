@@ -9,14 +9,10 @@ class AlternativasSerializer(serializers.ModelSerializer):
         fields = ('texto', 'imagem', 'correta', 'item')
         
 class ItensSerializer(serializers.ModelSerializer):
-    
-    alternativas = AlternativasSerializer(many=True)
-
-    
     class Meta:
         model = Item
         fields = ('enunciado', 'suporte', 'comando', 
-            'dificuldade', 'curso', 'unidade_curricular', 'alternativas')
+            'dificuldade', 'curso', 'unidade_curricular', 'autor')
             
 
         
