@@ -13,6 +13,10 @@ class ItensViewSet(viewsets.ModelViewSet):
     permission_classes = (IsAuthenticated,)
     queryset = Item.objects.all()
     serializer_class = ItensSerializer
+
+    def post(self, request):
+        self.serializer_class.save(autor=request.user)
+
     
 class AlternativasViewSet(viewsets.ModelViewSet):
     """
