@@ -16,9 +16,10 @@ router.extend(accounts)
 router.extend(itens)
 
 urlpatterns = [
-    #path('', include(router.urls)),
-    path('', TemplateView.as_view(template_name='home.html'), name='home'),
+    path('', include(router.urls)),
+    #path('', TemplateView.as_view(template_name='home.html'), name='home'),
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
-    #path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+    #path('itens/', include('django.contrib.auth.urls')),
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
