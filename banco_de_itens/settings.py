@@ -57,7 +57,7 @@ ROOT_URLCONF = 'banco_de_itens.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -134,3 +134,4 @@ REST_FRAMEWORK = {
     )
 }
 
+LOGIN_REDIRECT_URL = '/'
