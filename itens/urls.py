@@ -9,3 +9,7 @@ from .views import ItensViewSet, AlternativasViewSet
 router = routers.DefaultRouter()
 router.register(r'itens', ItensViewSet, base_name='Itens')
 router.register(r'alternativas', AlternativasViewSet, base_name='Alternativas')
+
+urlpatterns = [
+    path('itens/', ItensViewSet, name='itens'),
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
