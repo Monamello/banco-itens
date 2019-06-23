@@ -10,27 +10,28 @@ class Item(models.Model):
         ('muito_dificil', 'Muito Difícil'),
     )
     
-    enunciado = models.CharField(max_length=500) # Pesquisar sobre RichTextField
-    suporte = models.CharField(max_length=500) # Pesquisar sobre RichTextField
-    comando = models.CharField(max_length=500) # Pesquisar sobre RichTextField
+    enunciado = models.TextField(max_length=1200)
+    suporte = models.TextField(max_length=1200)
+    comando = models.TextField(max_length=1200)
     dificuldade = models.CharField(max_length=30, choices=DIFICULDADES)
     cursos = models.ManyToManyField('Cursos')
-    unidade_curricular = models.CharField(max_length=45)
+    #unidades_curriculares = models.ManyToManyField('UnidadeCurricular')
+    unidades_curriculares = models.ForeignKey('UnidadeCurricular', related_name='unidades_curriculares', on_delete=models.CASCADE)
     autor = models.ForeignKey(User, on_delete=models.CASCADE)
 
 
 class Alternativa(models.Model):
-    texto = models.CharField(max_length=500)
-    imagem = models.ImageField(upload_to='imagem_alternativas')
+    texto = models.TextField(max_length=1200)
+    imagem = models.ImageField(upload_to='imagem_alternativas', blank=True, null=True)
     correta = models.BooleanField(default=False)
     item = models.ForeignKey(Item, related_name='alternativas', on_delete=models.CASCADE)
 
 
 class Cursos(models.Model):
     nome = models.CharField(max_length=254)
-    materias = models.ManyToManyField('Materias')
+    unidades_curriculares = models.ManyToManyField('UnidadeCurricular')
     docente = models.ManyToManyField(User)
 
 
-class Materias(models.Model):
+class UnidadeCurricular(models.Model):
     nome = models.CharField(max_length=254)

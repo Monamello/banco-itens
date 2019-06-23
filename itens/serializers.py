@@ -1,13 +1,7 @@
-from .models import Item, Alternativa, Cursos, Materias
+from .models import Item, Alternativa, Cursos, UnidadeCurricular
 from rest_framework import serializers
 
-
-class AlternativasSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Alternativa
-        fields = ('texto', 'imagem', 'correta', 'item')
         
-
 class ItensSerializer(serializers.ModelSerializer):
     class Meta:
         model = Item
@@ -15,17 +9,20 @@ class ItensSerializer(serializers.ModelSerializer):
             'dificuldade', 'cursos', 'unidade_curricular', 'autor')
 
 
+class AlternativasSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Alternativa
+        fields = ('texto', 'imagem', 'correta', 'item')
+
+
 class CursosSerializer(serializers.ModelSerializer):
     class Meta:
         model = Cursos 
-        fields = ('nome', 'materias')
+        fields = ('nome', 'unidade_curricular')
 
 
-class MateriasSerializer(serializers.ModelSerializer):
+class UnidadeCurricularSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Materias 
+        model = UnidadeCurricular 
         fields = ('nome')
-            
-
-        
-    
