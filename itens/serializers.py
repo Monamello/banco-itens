@@ -1,6 +1,5 @@
-from .models import Item, Alternativa
+from .models import Item, Alternativa, Cursos, Materias
 from rest_framework import serializers
-from accounts.serializers import UserSerializer
 
 
 class AlternativasSerializer(serializers.ModelSerializer):
@@ -8,11 +7,24 @@ class AlternativasSerializer(serializers.ModelSerializer):
         model = Alternativa
         fields = ('texto', 'imagem', 'correta', 'item')
         
+
 class ItensSerializer(serializers.ModelSerializer):
     class Meta:
         model = Item
         fields = ('enunciado', 'suporte', 'comando', 
-            'dificuldade', 'curso', 'unidade_curricular', 'autor')
+            'dificuldade', 'cursos', 'unidade_curricular', 'autor')
+
+
+class CursosSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Cursos 
+        fields = ('nome', 'materias')
+
+
+class MateriasSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Materias 
+        fields = ('nome')
             
 
         

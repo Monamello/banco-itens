@@ -14,13 +14,23 @@ class Item(models.Model):
     suporte = models.CharField(max_length=500) # Pesquisar sobre RichTextField
     comando = models.CharField(max_length=500) # Pesquisar sobre RichTextField
     dificuldade = models.CharField(max_length=30, choices=DIFICULDADES)
-    curso = models.CharField(max_length=30)
+    cursos = models.ManyToManyField('Cursos')
     unidade_curricular = models.CharField(max_length=45)
-    autor = models.ForeignKey(User, on_delete="CASCADE")
+    autor = models.ForeignKey(User, on_delete=models.CASCADE)
 
 
 class Alternativa(models.Model):
     texto = models.CharField(max_length=500)
     imagem = models.ImageField(upload_to='imagem_alternativas')
     correta = models.BooleanField(default=False)
-    item = models.ForeignKey(Item, related_name='alternativas', on_delete="CASCADE")
+    item = models.ForeignKey(Item, related_name='alternativas', on_delete=models.CASCADE)
+
+
+class Cursos(models.Model):
+    nome = models.CharField(max_length=254)
+    materias = models.ManyToManyField('Materias')
+    docente = models.ManyToManyField(User)
+
+
+class Materias(models.Model):
+    nome = models.CharField(max_length=254)
