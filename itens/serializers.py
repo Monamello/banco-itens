@@ -6,7 +6,7 @@ class ItensSerializer(serializers.ModelSerializer):
     class Meta:
         model = Item
         fields = ('enunciado', 'suporte', 'comando', 
-            'dificuldade', 'cursos', 'unidade_curricular', 'autor')
+            'dificuldade', 'cursos', 'unidades_curriculares', 'autor')
 
 
 class AlternativasSerializer(serializers.ModelSerializer):
