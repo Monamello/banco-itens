@@ -1,6 +1,5 @@
 from .models import Item, Alternativa
 from rest_framework import serializers
-from accounts.serializers import UserSerializer
 
 
 class AlternativasSerializer(serializers.ModelSerializer):

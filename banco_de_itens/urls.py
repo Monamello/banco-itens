@@ -4,15 +4,12 @@ from django.conf.urls.static import static
 from django.conf import settings
 from rest_framework import routers
 from itens.views import ItensViewSet, AlternativasViewSet
-from accounts.views import UserViewSet, GroupViewSet
 from django.views.generic.base import TemplateView
 from . import routers
-from accounts.urls import router as accounts
 from itens.urls import router as itens
 
 
 router = routers.DefaultRouter()
-router.extend(accounts)
 router.extend(itens)
 
 urlpatterns = [
