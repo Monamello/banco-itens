@@ -1,18 +1,12 @@
 from django.db import models
+from .choices import DIFICULDADES
 from django.contrib.auth.models import User, Group
 
 class Item(models.Model):
-    DIFICULDADES = (
-        ('muito_facil', 'Muito Fácil'),
-        ('facil', 'Fácil'),
-        ('medio', 'Médio'),
-        ('dificil', 'Difícil'),
-        ('muito_dificil', 'Muito Difícil'),
-    )
-    
     enunciado = models.TextField(max_length=1200)
-    suporte = models.TextField(max_length=1200)
-    comando = models.TextField(max_length=1200)
+    suporte_texto = models.TextField(max_length=1200, blank=True, null=True)
+    suporte_imagem = models.ImageField(upload_to='imagem_alternativas', blank=True, null=True)
+    comando = models.TextField(max_length=1200, blank=False, null=False)
     dificuldade = models.CharField(max_length=30, choices=DIFICULDADES)
     cursos = models.ManyToManyField('Cursos')
     unidades_curriculares = models.ForeignKey('UnidadeCurricular', related_name='unidades_curriculares', on_delete=models.CASCADE)
