@@ -19,7 +19,7 @@ urlpatterns = [
     path('', TemplateView.as_view(template_name='home.html'), name='home'),
     path('', include(router.urls)),
     path('admin/', admin.site.urls),
-
+    path('docentes/', include('accounts.urls')),
     path('', include('django.contrib.auth.urls')),
     # path('', include('itens.urls'), {'template_name':'itens/itens_form.html'}),
 

@@ -1,9 +1,32 @@
 {% extends 'base.html' %}
-
-{% block title %}Home{% endblock %}
-
+{% load static %}
 {% block content %}
 {% if user.is_authenticated %}
+<div class="d-flex" id="wrapper">
+
+    <!-- Sidebar -->
+    <div class="bg-light border-right sidebar-itens" id="sidebar-wrapper">
+      <div class="sidebar-heading">
+        <img src="{% static "logo-resumida-branca.png" %}" width="80">
+      </div>
+      <div class="list-group list-group-flush">
+        <a href="#" class="list-group-item list-group-item-action itens-menu"><i class="fab fa-stack-exchange icone-menu"></i></a>
+        <a href="#" class="list-group-item list-group-item-action itens-menu"><i class="fas fa-id-card-alt icone-menu"></i></a>
+      </div>
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+
+      <div class="container-fluid">
+        <h1 class="mt-4">Acredite em Você!</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus maximus auctor odio vel tincidunt. Nam a tellus vitae odio aliquam venenatis vel sit amet enim. Duis ultricies lectus tortor, at eleifend libero vulputate vitae. Curabitur eu ante accumsan, interdum dolor in, luctus dolor. Nunc efficitur metus id vehicula auctor.</p>
+      </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+
+  </div>
   Hi {{ user.username }}!
   <p>
     <a href="{% url 'logout' %}">logout</a>

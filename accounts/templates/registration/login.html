@@ -3,10 +3,28 @@
 {% block title %}Login{% endblock %}
 
 {% block content %}
-<h2>Login</h2>
-<form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Login</button>
-</form>
+{% load static %}
+<img src="{% static "accounts/logo-branca.png" %}"  class="logo-login">
+<div class="bg-alunos"></div>
+<div class="text-center login-form ">
+  <form class="form-signin" form id="login-form" method="post" action="{% url 'login' %}">
+    <div class="mb-4 imagem-profile"></div>
+    {% csrf_token %}
+    <!--{{ form.as_p }}-->
+    <input id="id_username" placeholder="Usuário" name="username" type="text" class="form-control login-form-input">
+    <input id="id_password" placeholder="Senha" name="password" type="password" class="form-control login-form-input">
+    <table>
+    <tr>
+    <td>
+    <a class="btn btn-lg btn-primary btn-block btn-login btn-senha-color" href="{% url 'password_reset' %}">Esqueci minha Senha</a>
+    </td>
+    <td>
+    <button class="btn btn-lg btn-primary btn-block btn-login btn-login-color" type="submit">Acessar</button>
+    </td>
+    </tr>
+    </tr>
+    </table>
+    
+  </form>
+</div>
 {% endblock %}

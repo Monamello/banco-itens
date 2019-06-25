@@ -1,0 +1,9 @@
+
+<h1>users</h1>
+<ul>
+{% for user in users %}
+    <li>{{ user }} </li>
+{% empty %}
+    <li>No articles yet.</li>
+{% endfor %}
+</ul>
