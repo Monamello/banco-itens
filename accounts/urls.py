@@ -9,6 +9,7 @@ from .views import UserViewSet, GroupViewSet
 router = routers.DefaultRouter()
 router.register(r'users', UserViewSet, base_name='Users')
 router.register(r'groups', GroupViewSet, base_name='Groups')
+urlpatterns = router.urls
 
 urlpatterns = [
     path('accounts/login/', UserViewSet, name='login'),

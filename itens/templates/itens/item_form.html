@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Item List{% endblock %}
+
+{% block content %}
+
+<html><body>
+  <h1>Item Form:</h1>
+  
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Save">
+  </form>
+
+  </body></html>
+
+{% endblock %}

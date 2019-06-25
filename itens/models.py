@@ -1,15 +1,8 @@
 from django.db import models
+from .choices import DIFICULDADES
 from django.contrib.auth.models import User, Group
 
 class Item(models.Model):
-    DIFICULDADES = (
-        ('muito_facil', 'Muito Fácil'),
-        ('facil', 'Fácil'),
-        ('medio', 'Médio'),
-        ('dificil', 'Difícil'),
-        ('muito_dificil', 'Muito Difícil'),
-    )
-    
     enunciado = models.TextField(max_length=1200)
     suporte = models.TextField(max_length=1200)
     comando = models.TextField(max_length=1200)
