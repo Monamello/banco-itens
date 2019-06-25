@@ -4,15 +4,34 @@
 
 {% block content %}
 {% load static %}
-<img src="{% static "accounts/logo-branca.png" %}"  class="logo-login">
-<div class="bg-alunos"></div>
+<div class="row">
+  <img src="{% static "logo-branca-new.png" %}"  class="logo-login">
+</div>
 <div class="text-center login-form ">
+
   <form class="form-signin" form id="login-form" method="post" action="{% url 'login' %}">
-    <div class="mb-4 imagem-profile"></div>
+
+    <div id="demo" class="mb-4 imagem-profile"></div>
     {% csrf_token %}
     <!--{{ form.as_p }}-->
-    <input id="id_username" placeholder="Usuário" name="username" type="text" class="form-control login-form-input">
+    <input id="id_username" placeholder="Usuário" name="username" onchange="myFunction()" type="text" class="form-control login-form-input">
     <input id="id_password" placeholder="Senha" name="password" type="password" class="form-control login-form-input">
+{% if form.errors %}
+    <table style="
+    width: 100%;
+    color: white;
+    font-weight: 700;
+    box-shadow: 0 0 black;
+    vertical-align: middle;
+    background-color: #da4f4f;
+    height: 40px;
+    margin-bottom: 10px;
+">
+      <tr>
+        <td>Usuário ou Senha errados.</td>
+      </tr>
+    {% endif %}
+    </table>
     <table>
     <tr>
     <td>
@@ -24,7 +43,14 @@
     </tr>
     </tr>
     </table>
-    
+
   </form>
+  <script>
+  function myFunction() {
+    console.log("estou aqui")
+    var x = document.getElementById("id_username").value;
+    document.getElementById("demo").style.backgroundImage = "url('https://www.rd.com/wp-content/uploads/2017/09/01-shutterstock_476340928-Irina-Bg.jpg')";
+  }
+  </script>
 </div>
 {% endblock %}

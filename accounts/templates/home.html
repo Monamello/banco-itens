@@ -2,25 +2,11 @@
 {% load static %}
 {% block content %}
 {% if user.is_authenticated %}
-<div class="d-flex" id="wrapper">
-
-    <!-- Sidebar -->
-    <div class="bg-light border-right sidebar-itens" id="sidebar-wrapper">
-      <div class="sidebar-heading">
-        <img src="{% static "logo-resumida-branca.png" %}" width="80">
-      </div>
-      <div class="list-group list-group-flush">
-        <a href="#" class="list-group-item list-group-item-action itens-menu"><i class="fab fa-stack-exchange icone-menu"></i></a>
-        <a href="#" class="list-group-item list-group-item-action itens-menu"><i class="fas fa-id-card-alt icone-menu"></i></a>
-      </div>
-    </div>
-    <!-- /#sidebar-wrapper -->
-
     <!-- Page Content -->
     <div id="page-content-wrapper">
 
-      <div class="container-fluid">
-        <h1 class="mt-4">Acredite em Você!</h1>
+      <div class="container-fluid content-itens">
+        <h1 class="mt-4 title-page">Lorem ipsum dolor</h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus maximus auctor odio vel tincidunt. Nam a tellus vitae odio aliquam venenatis vel sit amet enim. Duis ultricies lectus tortor, at eleifend libero vulputate vitae. Curabitur eu ante accumsan, interdum dolor in, luctus dolor. Nunc efficitur metus id vehicula auctor.</p>
       </div>
     </div>
@@ -33,6 +19,8 @@
     <a href="{% url 'password_change' %}">Reset Password</a>
   </p>
 {% else %}
+
+
 <style>
   /* --------------------------------
 
@@ -1072,7 +1060,7 @@
   .baner-content {
     padding-top: 30vh;
     text-align: center;
-    background-image: url(https://www.insidehighered.com/sites/default/server_files/media/portrait-of-high-school-students-with-teacher-on-campus-picture-id499113171_0.jpg);
+    background-image: url("/static/bg1-landingpage.png");
   }
 
   .baner-content h1 {
@@ -1108,7 +1096,7 @@
     padding-left: 15px;
     padding-right: 15px;
     padding-top: 15vh;
-    background-image: url(https://study.eshipglobal.com/img/StudentsIMG.jpg);
+    background-image: url("/static/bg2-landing.png");
     background-attachment: fixed;
     min-height: 100vh;
     background-size: cover;
@@ -1171,7 +1159,7 @@
 
   .projects-content {
     padding-top: 20vh;
-    background-image: url(http://www.intheblack.com/~/media/intheblack/allimages/taxation/2017/students-tax-tips.jpg);
+    background-image: url("/static/bg-landing3.png");
   }
 
   .projects-content .item img {
@@ -1225,7 +1213,7 @@
     padding-left: 15px;
     padding-right: 15px;
     padding-top: 8vh;
-    background-image: url(http://www.educationusa.be/wp-content/uploads/2015/10/college-classes.jpg);
+    background-image: url("/static/bg-landing3.png");
     background-attachment: fixed;
     min-height: 100vh;
     background-size: cover;
@@ -1721,20 +1709,16 @@
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js" integrity="sha256-ffw+9zwShMev88XNrDgS0hLIuJkDfXhgyLogod77mn8=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
-
 <div class="parallax-content baner-content" id="home">
     <div class="container">
         <div class="first-content">
-            <img src="{% static "logo-colorida.png" %}"  class="logo-landing">
-              <img src="{% static "fiesc-footer.png" %}"  class="logo-landing">
+            <img src="{% static "logo_blue.png" %}"  class="logo-landing">
             <div class="primary-button">
                 <a href="{% url 'login' %}">Acessar</a>
             </div>
         </div>
     </div>
 </div>
-
-
 <div class="service-content" id="services">
     <div class="container">
         <div class="row">
@@ -1789,10 +1773,8 @@
         </div>
     </div>
 </div>
-
-
-        </div>
-    </div>
+</div>
+</div>
 </div>
 <script>
   /*!

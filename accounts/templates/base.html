@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <style>
     *{
-     font-family: 'Raleway', sans-serif; 
+     font-family: 'Raleway', sans-serif;
     }
     .login-form {
       width: 100%;
@@ -19,9 +19,7 @@
       align-items: center;
       padding-top: 40px;
       padding-bottom: 40px;
-      background-color: #0069ffa8;
-      z-index: 2;
-      position: absolute;
+      background: url("/static/bg-login.png");
     }
     .form-signin{
       width: 100%;
@@ -61,10 +59,10 @@
       background-color: #78a596;
     }
     .logo-login {
-        width: 300px;
+        width: 400px;
         position: absolute;
         z-index: 99;
-        margin-left: 40%;
+        margin-left: calc(50vw - 180px);
         margin-top: 49px;
     }
     .imagem-profile {
@@ -73,6 +71,9 @@
     height: 180px;
     border-radius: 100%;
     margin: 0 auto;
+    background-size: cover;
+    background-position: center;
+    border: solid #fff;
 }
 /*!
  * Start Bootstrap - Simple Sidebar (https://startbootstrap.com/template-overviews/simple-sidebar)
@@ -121,24 +122,73 @@ body {
   }
 }
 .sidebar-itens {
-      background-color: #39afff !important;
-    border-right: solid 3px #2f84c394 !important;
+    background-color: #0ba9ec !important;
+    border-right: solid 7px #ffffff !important;
     min-width: 50px;
     max-width: 135px;
 }
 .itens-menu {
-    background-color: #39afff !important;
+    background-color: transparent;
+    padding: 26px 0px;
     border: none;
     color: #fff;
     text-align: center;
+    transition: background-color 1s;
 }
+
+.itens-menu:hover {
+    background-color: #00000012;
+    color: #fff;
+}
+.itens-menu:hover i {
+  text-shadow: 0px 3px 5px #00000047;
+}
+
 .icone-menu {
-      font-size: -webkit-xxx-large;
+  transition: text-shadow 0.5s;
+  font-size: 40px;
+}
+.title-page {
+    font-weight: bolder;
+    color: #4e4c61;
+}
+.content-itens{
+  padding: 10px 60px;
 }
   </style>
 </head>
 <body>
   <main>
+    {% load static %}
+    {% if user.is_authenticated %}
+    <div class="d-flex" id="wrapper" style="
+        background-color: #eaeaea;">
+
+        <!-- Sidebar -->
+        <div class="bg-light border-right sidebar-itens" id="sidebar-wrapper">
+          <div class="sidebar-heading" style="padding: 10px;">
+            <img src="{% static "logo-resumida-branca.png" %}" width="70">
+          </div>
+          <div class="list-group list-group-flush">
+            <a href="{% url 'home' %}" class="list-group-item list-group-item-action itens-menu"><i class="fas fa-home icone-menu"></i></a>
+            <a href="{% url 'list_docentes' %}" class="list-group-item list-group-item-action itens-menu"><i class="fas fa-chalkboard icone-menu"></i></a>
+            <a href="{% url 'logout' %}" class="list-group-item list-group-item-action itens-menu"><i class="fas fa-id-card-alt icone-menu"></i></a>
+          </div>
+          <div style="
+              position: absolute;
+              bottom: 0;
+              list-style-type: none;
+              background-color: white;
+              width: 70px;
+              border-radius: 100%;
+              height: 70px;
+              margin: 8px;
+          ">
+
+              </div>
+        </div>
+        <!-- /#sidebar-wrapper -->
+    {% endif %}
     {% block content %}
     {% endblock %}
   </main>
