@@ -1,18 +1,35 @@
 {% extends 'base.html' %}
-
-{% block title %}Item List{% endblock %}
-
+{% load static %}
 {% block content %}
+{% if user.is_authenticated %}
+<div id="page-content-wrapper">
+  <style>
+    textarea {
+      width: 300px;
+      height: 80px;
+    }
 
-<html><body>
-  <h1>Item Form:</h1>
-  
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Save">
-  </form>
-
-  </body></html>
-
+    label {
+      display: block;
+    }
+  </style>
+  <div class="container-fluid content-itens">
+    <div>
+      <h1 class="mt-4" style="
+    font-weight: bolder;
+    color: #4e4c61;
+">Criar Item</h1>
+    </div>
+    <div>
+      <div class="row">
+        <form method="post">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <input type="submit" value="Save">
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}
 {% endblock %}

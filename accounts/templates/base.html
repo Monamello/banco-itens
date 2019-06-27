@@ -172,10 +172,10 @@ body {
           </div>
           <div class="list-group list-group-flush">
             <a href="{% url 'home' %}" class="list-group-item list-group-item-action itens-menu"><i class="fas fa-home icone-menu"></i></a>
-            <a href="{% url 'list_docentes' %}" class="list-group-item list-group-item-action itens-menu"><i class="fas fa-chalkboard icone-menu"></i></a>
-            <a href="{% url 'logout' %}" class="list-group-item list-group-item-action itens-menu"><i class="fas fa-id-card-alt icone-menu"></i></a>
+            <a href="{% url 'item_list' %}" class="list-group-item list-group-item-action itens-menu"><i class="fas fa-chalkboard icone-menu"></i></a>
+            <!-- <a href="{% url 'item_create' %}" class="list-group-item list-group-item-action itens-menu"><i class="fas fa-id-card-alt icone-menu"></i></a> -->
           </div>
-          <div style="
+          <a href="{% url 'logout' %}" style="
               position: absolute;
               bottom: 0;
               list-style-type: none;
@@ -186,7 +186,7 @@ body {
               margin: 8px;
           ">
 
-              </div>
+        </a>
         </div>
         <!-- /#sidebar-wrapper -->
     {% endif %}
