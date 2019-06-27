@@ -8,17 +8,22 @@
       background-color: white;
       border-radius: 15px;
       min-height: 276px;
+      max-height: 276px;
       border: solid 2px #949494;
+      overflow: hidden;
+      text-overflow: ellipsis
     }
     .itens-container{
       padding: 50px 0px;
     }
     .item-enunciado {
-      font-weight: 700;
-      font-size: x-large;
+      font-weight: 600;
       text-align: center;
       padding: 29px 10px;
       vertical-align: middle;
+      height: 200px;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     .item-dificuldade{
       text-align: right;
@@ -69,21 +74,27 @@
       <input type="text" name="" class="form-control input-banco-itens">
     </div>
     <div class="itens-container">
+    <div class="row">
     {% for item in itens %}
-        <div class="item col-lg-2 col-md-2 col-sm-2 ">
-          <div class="item-dificuldade">
-            <b class="{% if item.dificuldade == 'medio' %} medio {% endif %}{% if item.dificuldade == 'facil' %} facil {% endif %}{% if item.dificuldade == 'muito_facil' %} muito-facil {% endif %}{% if item.dificuldade == 'dificil' %} dificil {% endif %}{% if item.dificuldade == 'muito_dificil' %} muito-dificil {% endif %}">{{ item.dificuldade }}</b>
-          </div>
-          <div class="item-enunciado">
-            <p>{{ item.enunciado }}</p>
-          </div>
-          <div class="item-more-details">
-            <a href="#">Mais Detalhes</a>
+        <div class="item mt-2 ml-2 col-lg-2 col-md-2 col-sm-2 ">
+          <div class="  ">
+            <div class="item-dificuldade">
+              <b class="{% if item.dificuldade == 'medio' %} medio {% endif %}{% if item.dificuldade == 'facil' %} facil {% endif %}{% if item.dificuldade == 'muito_facil' %} muito-facil {% endif %}{% if item.dificuldade == 'dificil' %} dificil {% endif %}{% if item.dificuldade == 'muito_dificil' %} muito-dificil {% endif %}">{{ item.dificuldade }}</b>
+            </div>
+            <div class="item-enunciado">
+              <p>{{ item.enunciado }}</p>
+              <p>{{ item.suporte_texto }}</p>
+              <p>{{ item.comando }}</p>
+            </div>
+            <div class="item-more-details">
+              <a href="#">Mais Detalhes</a>
+            </div>
           </div>
         </div>
     {% empty %}
         <div>No articles yet.</div>
     {% endfor %}
+    </div>
     </div>
   </div>
 </div>
