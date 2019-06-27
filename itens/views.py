@@ -8,7 +8,7 @@ from django.http import HttpResponseRedirect
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView
 from django.shortcuts import render
-
+from django.urls import reverse
 
 from .models import Item, Alternativa
 from .serializers import ItensSerializer, AlternativasSerializer
@@ -35,21 +35,33 @@ class ItemListView(ListView):
 class ItemCreateView(CreateView):
     model = Item
     form_class = ItemForm
+    form_alternativa = AlternativaForm
+    serializer_class = ItensSerializer
+    serializer = AlternativasSerializer
     template_name = 'itens/item_form.html'
 
     def get(self, request, *args, **kwargs):
         form = self.form_class(initial=self.initial)
-        return render(request, self.template_name, {'form': form})
+        form_alt = self.form_alternativa(initial=self.initial)
+        return render(request, self.template_name, {'form': form, 'form_alt': form_alt})
     
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST)
-        if form.is_valid():
-            return HttpResponseRedirect('/alternativas/create/')
+        form_alt = self.form_alternativa(request.POST)
+        # setar o alternativa.item == item.pk
+        if form.is_valid() and form_alt.is_valid():
+            form.save()
+            form_alt.save()
+            return HttpResponseRedirect(self.get_success_url())
+        else:
+            return HttpResponseRedirect('/')
+
+
+    def get_success_url(self):
+        return reverse('item_list')
 
 
 class AlternativaCreateView(CreateView):
-# The view itens.views.AlternativaCreateView didn't return an HttpResponse object. It returned None instead.
-
     model = Alternativa
     form_class = AlternativaForm
     template_name = 'itens/item_form.html'
@@ -60,9 +72,7 @@ class AlternativaCreateView(CreateView):
     
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST)
-        # self.serializer_class.save(item=item.pk)
         if form.is_valid():
-            #dá erro quando retorna pela segunda vez aqui
             return HttpResponseRedirect('/item/list/')
 
 
