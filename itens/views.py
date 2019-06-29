@@ -31,6 +31,19 @@ class ItensViewSet(viewsets.ModelViewSet):
 
 class ItemListView(ListView):
     model = Item
+    template_name = 'itens/item_list.html'
+
+    def get(self, request, *args, **kwargs):
+        itens = self.model.objects.all()
+        return render(request, self.template_name, {'itens': itens})
+
+
+# def list_users(request):
+#     users = User.objects.all().order_by('-date_joined')
+#     context = {'users': users}
+#     return render(request, 'users.html', context)
+
+
 
 class ItemCreateView(CreateView):
     model = Item
@@ -44,7 +57,8 @@ class ItemCreateView(CreateView):
         form = self.form_class(initial=self.initial)
         form_alt = self.form_alternativa(initial=self.initial)
         return render(request, self.template_name, {'form': form, 'form_alt': form_alt})
-    
+      
+     
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST)
         form_alt = self.form_alternativa(request.POST)
@@ -69,7 +83,7 @@ class AlternativaCreateView(CreateView):
     def get(self, request, *args, **kwargs):
         form = self.form_class(initial=self.initial)
         return render(request, self.template_name, {'form': form})
-    
+
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST)
         if form.is_valid():
