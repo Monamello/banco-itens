@@ -6,12 +6,13 @@ from rest_framework import viewsets
 
 from django.http import HttpResponseRedirect
 from django.views.generic.list import ListView
+from django.db.models import Q
 from django.views.generic.edit import CreateView
 from django.shortcuts import render
 from django.urls import reverse
 from django.db.models import Q
 
-from .models import Item, Alternativa
+from .models import Item, Alternativa, Cursos, UnidadeCurricular
 from .serializers import ItensSerializer, AlternativasSerializer
 from .forms import ItemForm, AlternativaForm
 
@@ -81,21 +82,34 @@ class ItemCreateView(CreateView):
 
     def get(self, request, *args, **kwargs):
         form = self.form_class(initial=self.initial)
-        form_alt = self.form_alternativa(initial=self.initial)
-        return render(request, self.template_name, {'form': form, 'form_alt': form_alt, 'range': range(1, 6)})
+        form.fields['cursos'].queryset = Cursos.objects.filter(docente=self.request.user)
+        form.fields['unidades_curriculares'].queryset = UnidadeCurricular.objects.filter(Q(cursos__docente=self.request.user))
+        return render(request, self.template_name, {'form': form})
       
      
     def post(self, request, *args, **kwargs):
-        form = self.form_class(request.POST)
+        form = self.form_class(request.POST, request.FILES)
+
         form.instance.autor = request.user
-        form_alt = self.form_alternativa(request.POST)
-        if form.is_valid() and form_alt.is_valid():
+        forms_alt = []
+        is_valid_forms_alt = []
+        for i in range(1,6):
+            post = {
+                "texto": request.POST.get('texto' + str(i), ''),
+                "correta": request.POST.get("correta" + str(i), 'off') == 'on'
+            }
+            form_alt = self.form_alternativa(post, {"imagem": request.FILES.get("imagem"+str(i), [])})
+            forms_alt.append(form_alt)
+            is_valid_forms_alt.append(form_alt.is_valid())
+
+        if form.is_valid() and all(is_valid_forms_alt):
             form.save()
-            form_alt.instance.item = form.instance
-            form_alt.save()
+            for form_alt in forms_alt:
+                form_alt.instance.item = form.instance
+                form_alt.save()
             return HttpResponseRedirect(self.get_success_url())
         else:
-            return HttpResponseRedirect('/')
+            return render(request, self.template_name, {'form': form})
 
 
     def get_success_url(self):
