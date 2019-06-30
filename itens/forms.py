@@ -4,25 +4,25 @@ from .choices import DIFICULDADES
 from .models import Item, Cursos, UnidadeCurricular, Alternativa
 
 
-class ItemForm(ModelForm):
+class ItemForm(forms.ModelForm):
     class Meta:
         model = Item
         exclude = ()
 
-    enunciado = forms.CharField(widget=forms.Textarea)
-    suporte = forms.CharField(widget=forms.Textarea)
-    suporte_imagem = forms.ImageField(required=False, label='Suporte Imagem')
-    comando = forms.CharField(widget=forms.Textarea)
-    dificuldade = forms.ChoiceField(choices=DIFICULDADES, label="Dificuldade", widget=forms.Select())
-    cursos = forms.MultipleChoiceField(
-        choices=[(choice.pk, choice.nome) for choice in Cursos.objects.all()],
-        label='Curso', widget=forms.SelectMultiple())
-    unidades_curriculares = forms.MultipleChoiceField(
-        choices=[(choice.pk, choice.nome) for choice in UnidadeCurricular.objects.all()],
-        label='Curso', widget=forms.SelectMultiple())
+    # enunciado = forms.CharField(widget=forms.Textarea)
+    # suporte = forms.CharField(widget=forms.Textarea)
+    # suporte_imagem = forms.ImageField(required=False, label='Suporte Imagem')
+    # comando = forms.CharField(widget=forms.Textarea)
+    # dificuldade = forms.ChoiceField(choices=DIFICULDADES, label="Dificuldade", widget=forms.Select())
+    # cursos = forms.MultipleChoiceField(
+    #     choices=[(choice.pk, choice.nome) for choice in Cursos.objects.all()],
+    #     label='Curso', widget=forms.SelectMultiple())
+    # unidades_curriculares = forms.ModelMultipleChoiceField(widget=forms.CheckboxSelectMultiple(), 
+    #                                             queryset=UnidadeCurricular.objects.all())
 
 
-class AlternativaForm(ModelForm):
+
+class AlternativaForm(forms.ModelForm):
     class Meta:
         model = Alternativa
         exclude = ()

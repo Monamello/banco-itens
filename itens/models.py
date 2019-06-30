@@ -9,7 +9,7 @@ class Item(models.Model):
     comando = models.TextField(max_length=1200, blank=False, null=False)
     dificuldade = models.CharField(max_length=30, choices=DIFICULDADES)
     cursos = models.ManyToManyField('Cursos')
-    unidades_curriculares = models.ForeignKey('UnidadeCurricular', related_name='unidades_curriculares', on_delete=models.CASCADE)
+    unidades_curriculares = models.ManyToManyField('UnidadeCurricular')
     autor = models.ForeignKey(User, on_delete=models.CASCADE)
 
 
