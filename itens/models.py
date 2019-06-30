@@ -9,8 +9,11 @@ class Item(models.Model):
     comando = models.TextField(max_length=1200, blank=False, null=False)
     dificuldade = models.CharField(max_length=30, choices=DIFICULDADES)
     cursos = models.ManyToManyField('Cursos')
-    unidades_curriculares = models.ForeignKey('UnidadeCurricular', related_name='unidades_curriculares', on_delete=models.CASCADE)
+    unidades_curriculares = models.ManyToManyField('UnidadeCurricular')
     autor = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.enunciado
 
 
 class Alternativa(models.Model):
@@ -19,6 +22,9 @@ class Alternativa(models.Model):
     correta = models.BooleanField(default=False)
     item = models.ForeignKey(Item, related_name='alternativas', on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.texto
+
 
 class Cursos(models.Model):
     nome = models.CharField(max_length=254)
@@ -26,5 +32,10 @@ class Cursos(models.Model):
     docente = models.ManyToManyField(User)
 
 
+    def __str__(self):
+        return self.nome
+
 class UnidadeCurricular(models.Model):
     nome = models.CharField(max_length=254)
+    def __str__(self):
+        return self.nome
