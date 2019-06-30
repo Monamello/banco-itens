@@ -9,6 +9,7 @@ from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView
 from django.shortcuts import render
 from django.urls import reverse
+from django.db.models import Q
 
 from .models import Item, Alternativa
 from .serializers import ItensSerializer, AlternativasSerializer
@@ -37,6 +38,17 @@ class ItemListView(ListView):
         itens = self.model.objects.all()
         return render(request, self.template_name, {'itens': itens})
 
+    def get_queryset(self):
+        query = self.request.GET.get('q')
+        if query:
+            object_list = Item.objects.filter(
+                Q(enunciado__icontains=query) | Q(comando__icontains=query) | 
+                Q(suporte_texto__icontains=query) | Q(dificuldade__icontains=query) | 
+                Q(curso__icontains=query) | Q(unidades_curriculares__icontains=query))
+        else:
+            object_list = Item.objects.all()                
+        return object_list
+ 
 
 # def list_users(request):
 #     users = User.objects.all().order_by('-date_joined')

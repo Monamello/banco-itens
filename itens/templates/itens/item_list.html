@@ -70,9 +70,24 @@
       <h1 class="mt-4 title-page">Itens</h1>
       <button class="mt-4 novo-item" type="button" >Novo Item</button>
     </div>
+
     <div style="margin-top: 100px;">
-      <input type="text" name="" class="form-control input-banco-itens">
+      <form action="{% url 'item_list' %}" method="get">
+        <input type="text" name="q"  class="form-control input-banco-itens">
+      </form>
     </div>
+    <div>
+      <h1>Resultados:</h1>
+        <ul>
+            {% for obj in object_list %}
+              <li>
+                {{ obj }}
+              </li>
+            {% endfor %}
+          </ul>
+          <hr>
+    </div>
+
     <div class="itens-container">
     <div class="row">
     {% for item in itens %}
