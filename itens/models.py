@@ -28,7 +28,7 @@ class Alternativa(models.Model):
 
 class Cursos(models.Model):
     nome = models.CharField(max_length=254)
-    unidades_curriculares = models.ManyToManyField('UnidadeCurricular')
+    unidades_curriculares = models.ManyToManyField('UnidadeCurricular', related_name='cursos')
     docente = models.ManyToManyField(User)
 
 

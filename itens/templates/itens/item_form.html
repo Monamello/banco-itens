@@ -21,12 +21,25 @@
     </div>
     <div>
       <div class="row">
-        <form method="post">
+        <form method="post" enctype="multipart/form-data">
           {% csrf_token %}
           {{ form.as_p }}
           <p>ALTERNATIVAS</p>
-          {{ form_alt.as_p }}
-          <input type="submit" value="Save">
+          {% for i in i|rjust:5 %}
+            <p>
+              <label for="id_texto{{ forloop.counter }}">Texto:</label>
+              <textarea name="texto{{ forloop.counter }}" cols="40" rows="10" required="" id="id_texto{{ forloop.counter }}"></textarea>
+            </p>
+            <p>
+              <label for="id_imagem{{ forloop.counter }}">Imagem:</label>
+              <input type="file" name="imagem{{ forloop.counter }}" accept="image/*" id="id_imagem{{ forloop.counter }}">
+            </p>
+            <p>
+              <label for="id_correta{{ forloop.counter }}">Correta:</label>
+              <input type="checkbox" name="correta{{ forloop.counter }}" id="id_correta{{ forloop.counter }}">
+            </p>
+          {% endfor %}
+          <input type="submit" value="Save"/>
         </form>
       </div>
     </div>
