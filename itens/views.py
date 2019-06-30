@@ -35,18 +35,20 @@ class ItemListView(ListView):
     template_name = 'itens/item_list.html'
 
     def get(self, request, *args, **kwargs):
-        itens = self.model.objects.all()
+        itens = self.get_queryset()
         return render(request, self.template_name, {'itens': itens})
 
     def get_queryset(self):
         query = self.request.GET.get('q')
+        filter = Item.objects.filter(Q(cursos__docente=self.request.user))
         if query:
-            object_list = Item.objects.filter(
+            object_list = filter.filter(
                 Q(enunciado__icontains=query) | Q(comando__icontains=query) | 
-                Q(suporte_texto__icontains=query) | Q(dificuldade__icontains=query) | 
-                Q(curso__icontains=query) | Q(unidades_curriculares__icontains=query))
+                Q(suporte_texto__icontains=query) | Q(dificuldade__icontains=query) |
+                Q(cursos__nome__icontains=query) | Q(unidades_curriculares__nome__icontains=query)
+            )
         else:
-            object_list = Item.objects.all()                
+            object_list = filter.all()                
         return object_list
  
 

@@ -73,20 +73,9 @@
 
     <div style="margin-top: 100px;">
       <form action="{% url 'item_list' %}" method="get">
-        <input type="text" name="q"  class="form-control input-banco-itens">
+        <input type="text" name="q"  class="form-control input-banco-itens" placeholder="Pesquisar">
       </form>
-    </div>
-    <div>
-      <h1>Resultados:</h1>
-        <ul>
-            {% for obj in object_list %}
-              <li>
-                {{ obj }}
-              </li>
-            {% endfor %}
-          </ul>
-          <hr>
-    </div>
+    </div>  
 
     <div class="itens-container">
     <div class="row">
