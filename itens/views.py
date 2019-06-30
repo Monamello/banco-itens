@@ -36,7 +36,9 @@ class ItemListView(ListView):
 
     def get(self, request, *args, **kwargs):
         itens = self.get_queryset()
-        return render(request, self.template_name, {'itens': itens})
+        title = "Itens"
+        return render(request, self.template_name, {'itens': itens, 'title' : title})
+
 
     def get_queryset(self):
         query = self.request.GET.get('q')
@@ -51,6 +53,16 @@ class ItemListView(ListView):
             object_list = filter.all()                
         return object_list
  
+
+class MyItemListView(ListView):
+    model = Item
+    template_name = 'itens/item_list.html'
+    
+
+    def get(self, request, *args, **kwargs):
+        itens = self.model.objects.all().filter(autor=request.user)
+        title = "Meus Itens"
+        return render(request, self.template_name, {'itens': itens, 'title' : title})
 
 # def list_users(request):
 #     users = User.objects.all().order_by('-date_joined')
