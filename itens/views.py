@@ -9,6 +9,7 @@ from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView
 from django.shortcuts import render
 from django.urls import reverse
+from django.db.models import Q
 
 from .models import Item, Alternativa
 from .serializers import ItensSerializer, AlternativasSerializer
@@ -34,10 +35,24 @@ class ItemListView(ListView):
     template_name = 'itens/item_list.html'
 
     def get(self, request, *args, **kwargs):
-        itens = self.model.objects.all()
+        itens = self.get_queryset()
         title = "Itens"
         return render(request, self.template_name, {'itens': itens, 'title' : title})
 
+
+    def get_queryset(self):
+        query = self.request.GET.get('q')
+        filter = Item.objects.filter(Q(cursos__docente=self.request.user))
+        if query:
+            object_list = filter.filter(
+                Q(enunciado__icontains=query) | Q(comando__icontains=query) | 
+                Q(suporte_texto__icontains=query) | Q(dificuldade__icontains=query) |
+                Q(cursos__nome__icontains=query) | Q(unidades_curriculares__nome__icontains=query)
+            )
+        else:
+            object_list = filter.all()                
+        return object_list
+ 
 
 class MyItemListView(ListView):
     model = Item
