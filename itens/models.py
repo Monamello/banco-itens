@@ -12,12 +12,18 @@ class Item(models.Model):
     unidades_curriculares = models.ManyToManyField('UnidadeCurricular')
     autor = models.ForeignKey(User, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.enunciado
+
 
 class Alternativa(models.Model):
     texto = models.TextField(max_length=1200)
     imagem = models.ImageField(upload_to='imagem_alternativas', blank=True, null=True)
     correta = models.BooleanField(default=False)
     item = models.ForeignKey(Item, related_name='alternativas', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.texto
 
 
 class Cursos(models.Model):
@@ -26,5 +32,10 @@ class Cursos(models.Model):
     docente = models.ManyToManyField(User)
 
 
+    def __str__(self):
+        return self.nome
+
 class UnidadeCurricular(models.Model):
     nome = models.CharField(max_length=254)
+    def __str__(self):
+        return self.nome

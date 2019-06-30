@@ -56,15 +56,16 @@ class ItemCreateView(CreateView):
     def get(self, request, *args, **kwargs):
         form = self.form_class(initial=self.initial)
         form_alt = self.form_alternativa(initial=self.initial)
-        return render(request, self.template_name, {'form': form, 'form_alt': form_alt})
+        return render(request, self.template_name, {'form': form, 'form_alt': form_alt, 'range': range(1, 6)})
       
      
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST)
+        form.instance.autor = request.user
         form_alt = self.form_alternativa(request.POST)
-        # setar o alternativa.item == item.pk
         if form.is_valid() and form_alt.is_valid():
             form.save()
+            form_alt.instance.item = form.instance
             form_alt.save()
             return HttpResponseRedirect(self.get_success_url())
         else:

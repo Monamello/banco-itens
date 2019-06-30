@@ -7,7 +7,7 @@ from .models import Item, Cursos, UnidadeCurricular, Alternativa
 class ItemForm(forms.ModelForm):
     class Meta:
         model = Item
-        exclude = ()
+        exclude = ('autor', )
 
     # enunciado = forms.CharField(widget=forms.Textarea)
     # suporte = forms.CharField(widget=forms.Textarea)
@@ -25,8 +25,8 @@ class ItemForm(forms.ModelForm):
 class AlternativaForm(forms.ModelForm):
     class Meta:
         model = Alternativa
-        exclude = ()
+        exclude = ('item',)
 
     texto = forms.CharField(widget=forms.Textarea)
     imagem = forms.ImageField(required=False)
-    correta = forms.BooleanField()
+    correta = forms.BooleanField(required=False)
