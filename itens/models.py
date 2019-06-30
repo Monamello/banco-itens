@@ -5,7 +5,7 @@ from django.contrib.auth.models import User, Group
 class Item(models.Model):
     enunciado = models.TextField(max_length=1200)
     suporte_texto = models.TextField(max_length=1200, blank=True, null=True)
-    suporte_imagem = models.ImageField(upload_to='imagem_alternativas', blank=True, null=True)
+    suporte_imagem = models.ImageField(upload_to='static', blank=True, null=True)
     comando = models.TextField(max_length=1200, blank=False, null=False)
     dificuldade = models.CharField(max_length=30, choices=DIFICULDADES)
     cursos = models.ManyToManyField('Cursos')
@@ -15,7 +15,7 @@ class Item(models.Model):
 
 class Alternativa(models.Model):
     texto = models.TextField(max_length=1200)
-    imagem = models.ImageField(upload_to='imagem_alternativas', blank=True, null=True)
+    imagem = models.ImageField(upload_to='static', blank=True, null=True)
     correta = models.BooleanField(default=False)
     item = models.ForeignKey(Item, related_name='alternativas', on_delete=models.CASCADE)
 

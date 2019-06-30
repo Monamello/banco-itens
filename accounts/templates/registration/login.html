@@ -4,7 +4,11 @@
 
 {% block content %}
 {% load static %}
-
+<style>
+.imagem-profile {
+  background-image: url('https://www.loginradius.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png')
+}
+</style>
 <div class="row">
   <img src="{% static "logo-branca-new.png" %}"  class="logo-login">
 </div>
@@ -15,7 +19,7 @@
     <div id="demo" class="mb-4 imagem-profile"></div>
     {% csrf_token %}
     <!--{{ form.as_p }}-->
-    <input id="id_username" placeholder="Usuário" name="username" onchange="myFunction()" type="text" class="form-control login-form-input">
+    <input id="id_username" placeholder="Usuário" name="username" type="text" class="form-control login-form-input">
     <input id="id_password" placeholder="Senha" name="password" type="password" class="form-control login-form-input">
 {% if form.errors %}
     <table style="
@@ -46,12 +50,5 @@
     </table>
 
   </form>
-  <script>
-  function myFunction() {
-    console.log("estou aqui")
-    var x = document.getElementById("id_username").value;
-    document.getElementById("demo").style.backgroundImage = "url('https://www.rd.com/wp-content/uploads/2017/09/01-shutterstock_476340928-Irina-Bg.jpg')";
-  }
-  </script>
 </div>
 {% endblock %}
