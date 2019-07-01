@@ -6,7 +6,9 @@
   <script src="https://kit.fontawesome.com/e2e8bb9805.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  
   <style>
+    
     *{
      font-family: 'Raleway', sans-serif;
     }
@@ -102,6 +104,7 @@ body {
 
 #page-content-wrapper {
   min-width: 100vw;
+  margin-left: 90px;
 }
 
 #wrapper.toggled #sidebar-wrapper {
@@ -172,7 +175,10 @@ body {
         background-color: #eaeaea;">
 
         <!-- Sidebar -->
-        <div class="bg-light border-right sidebar-itens" id="sidebar-wrapper">
+        <div class="bg-light border-right sidebar-itens" id="sidebar-wrapper" style="
+        height: 100vh;
+        position: fixed;
+    ">
           <div class="sidebar-heading" style="padding: 10px;">
             <img src="{% static "logo-resumida-branca.png" %}" width="70">
           </div>

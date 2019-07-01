@@ -6,6 +6,15 @@ from rest_framework.permissions import IsAuthenticated
 from django.shortcuts import render
 from django.utils import timezone
 from django.views.generic.list import ListView
+from django.contrib.auth.forms import PasswordResetForm
+from django.urls import reverse_lazy
+from django.views import generic
+
+
+class SignUp(generic.CreateView):
+    form_class = PasswordResetForm
+    template_name = 'password_reset_form.html'
+
 
 class UserViewSet(viewsets.ModelViewSet):
     """

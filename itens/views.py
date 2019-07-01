@@ -36,9 +36,17 @@ class ItemListView(ListView):
     template_name = 'itens/item_list.html'
 
     def get(self, request, *args, **kwargs):
-        itens = self.get_queryset()
+        try:
+            user_is_authenticated = request.user.is_authenticated()
+        except TypeError:
+            user_is_authenticated = request.user.is_authenticated
+        
+        if user_is_authenticated:
+            itens = self.get_queryset()
+        else:
+            itens = self.model.objects.all()
         title = "Itens"
-        return render(request, self.template_name, {'itens': itens, 'title' : title})
+        return render(request, self.template_name, {'itens': itens, 'title' : title, 'isMyItens' : False})
 
 
     def get_queryset(self):
@@ -63,7 +71,20 @@ class MyItemListView(ListView):
     def get(self, request, *args, **kwargs):
         itens = self.model.objects.all().filter(autor=request.user)
         title = "Meus Itens"
-        return render(request, self.template_name, {'itens': itens, 'title' : title})
+        return render(request, self.template_name, {'itens': itens, 'title' : title, 'isMyItens' : True})
+
+    def get_queryset(self):
+        query = self.request.GET.get('q')
+        filter = self.model.objects.all().filter(autor=request.user)
+        if query:
+            object_list = filter.filter(
+                Q(enunciado__icontains=query) | Q(comando__icontains=query) | 
+                Q(suporte_texto__icontains=query) | Q(dificuldade__icontains=query) |
+                Q(cursos__nome__icontains=query) | Q(unidades_curriculares__nome__icontains=query)
+            )
+        else:
+            object_list = filter.all()                
+        return object_list
 
 # def list_users(request):
 #     users = User.objects.all().order_by('-date_joined')
@@ -84,7 +105,8 @@ class ItemCreateView(CreateView):
         form = self.form_class(initial=self.initial)
         form.fields['cursos'].queryset = Cursos.objects.filter(docente=self.request.user)
         form.fields['unidades_curriculares'].queryset = UnidadeCurricular.objects.filter(Q(cursos__docente=self.request.user))
-        return render(request, self.template_name, {'form': form})
+        alternativas = ['A','B', 'C', 'D','E']
+        return render(request, self.template_name, {'form': form,'alternativas': alternativas})
       
      
     def post(self, request, *args, **kwargs):
