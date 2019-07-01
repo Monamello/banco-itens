@@ -40,9 +40,10 @@ class ItemListView(ListView):
             user_is_authenticated = request.user.is_authenticated()
         except TypeError:
             user_is_authenticated = request.user.is_authenticated
-        
+
         if user_is_authenticated:
-            itens = self.get_queryset()
+            itens = self.model.objects.all()
+            # itens = self.get_queryset()
         else:
             itens = self.model.objects.all()
         title = "Itens"
@@ -54,19 +55,19 @@ class ItemListView(ListView):
         filter = Item.objects.filter(Q(cursos__docente=self.request.user))
         if query:
             object_list = filter.filter(
-                Q(enunciado__icontains=query) | Q(comando__icontains=query) | 
+                Q(enunciado__icontains=query) | Q(comando__icontains=query) |
                 Q(suporte_texto__icontains=query) | Q(dificuldade__icontains=query) |
                 Q(cursos__nome__icontains=query) | Q(unidades_curriculares__nome__icontains=query)
             )
         else:
-            object_list = filter.all()                
+            object_list = filter.all()
         return object_list
- 
+
 
 class MyItemListView(ListView):
     model = Item
     template_name = 'itens/item_list.html'
-    
+
 
     def get(self, request, *args, **kwargs):
         itens = self.model.objects.all().filter(autor=request.user)
@@ -78,19 +79,17 @@ class MyItemListView(ListView):
         filter = self.model.objects.all().filter(autor=request.user)
         if query:
             object_list = filter.filter(
-                Q(enunciado__icontains=query) | Q(comando__icontains=query) | 
+                Q(enunciado__icontains=query) | Q(comando__icontains=query) |
                 Q(suporte_texto__icontains=query) | Q(dificuldade__icontains=query) |
                 Q(cursos__nome__icontains=query) | Q(unidades_curriculares__nome__icontains=query)
             )
         else:
-            object_list = filter.all()                
+            object_list = filter.all()
         return object_list
 
-# def list_users(request):
-#     users = User.objects.all().order_by('-date_joined')
-#     context = {'users': users}
-#     return render(request, 'users.html', context)
 
+def sucess_create(request):
+    return render(request, 'success.html')
 
 
 class ItemCreateView(CreateView):
@@ -107,8 +106,8 @@ class ItemCreateView(CreateView):
         form.fields['unidades_curriculares'].queryset = UnidadeCurricular.objects.filter(Q(cursos__docente=self.request.user))
         alternativas = ['A','B', 'C', 'D','E']
         return render(request, self.template_name, {'form': form,'alternativas': alternativas})
-      
-     
+
+
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST, request.FILES)
 
@@ -135,7 +134,7 @@ class ItemCreateView(CreateView):
 
 
     def get_success_url(self):
-        return reverse('item_list')
+        return reverse('sucess_form_create')
 
 
 class AlternativaCreateView(CreateView):
@@ -147,10 +146,10 @@ class AlternativaCreateView(CreateView):
         form = self.form_class(initial=self.initial)
         return render(request, self.template_name, {'form': form})
 
-    def post(self, request, *args, **kwargs):
-        form = self.form_class(request.POST)
-        if form.is_valid():
-            return HttpResponseRedirect('/item/list/')
+    # def post(self, request, *args, **kwargs):
+    #     form = self.form_class(request.POST)
+    #     if form.is_valid():
+    #         return HttpResponseRedirect('/item/list/')
 
 
 class AlternativasViewSet(viewsets.ModelViewSet):

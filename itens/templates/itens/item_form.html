@@ -4,7 +4,7 @@
 
 <div id="page-content-wrapper">
     <style>
-    
+
         *{
          font-family: 'Raleway', sans-serif;
         }
@@ -82,7 +82,7 @@
       overflow-x: hidden;
       height: 100%;
     }
-    
+
     #sidebar-wrapper {
       min-height: 100vh;
       margin-left: -15rem;
@@ -91,31 +91,31 @@
       -o-transition: margin .25s ease-out;
       transition: margin .25s ease-out;
     }
-    
+
     #sidebar-wrapper .sidebar-heading {
       padding: 0.875rem 1.25rem;
       font-size: 1.2rem;
     }
-    
-    
+
+
     #page-content-wrapper {
       min-width: 100vw;
     }
-    
+
     #wrapper.toggled #sidebar-wrapper {
       margin-left: 0;
     }
-    
+
     @media (min-width: 768px) {
       #sidebar-wrapper {
         margin-left: 0;
       }
-    
+
       #page-content-wrapper {
         min-width: 0;
         width: 100%;
       }
-    
+
       #wrapper.toggled #sidebar-wrapper {
         margin-left: -15rem;
       }
@@ -134,7 +134,7 @@
         text-align: center;
         transition: background-color 1s;
     }
-    
+
     .itens-menu:hover {
         background-color: #00000012;
         color: #fff;
@@ -142,7 +142,7 @@
     .itens-menu:hover i {
       text-shadow: 0px 3px 5px #00000047;
     }
-    
+
     .icone-menu {
       transition: text-shadow 0.5s;
       font-size: 40px;
@@ -211,16 +211,16 @@ select {
     </div>
     <div>
       <div class="row">
-        <form onsubmit="gambiarraAtaulizar()" method="post" enctype="multipart/form-data">
+        <form method="post" enctype="multipart/form-data">
           {% csrf_token %}
           {{ form.as_p }}
-          
+
           <h1 class="mt-4" style="
     font-weight: bolder;
     color: #4e4c61;
 ">Criar as Alternativas</h1>
 <hr>
-          {% for i in alternativas  %}
+          {% for i in i|rjust:5 %}
           <h4>Alternativa {{i}}</h4>
           <p>
               <label for="id_correta{{ forloop.counter }}">Correta:</label>
@@ -228,22 +228,18 @@ select {
             </p>
             <p>
               <label for="id_texto{{ forloop.counter }}">Texto:</label>
-              <textarea oninput='disableInput("id_imagem{{ forloop.counter }}")' name="texto{{ forloop.counter }}" cols="40" rows="10" required="" id="id_texto{{ forloop.counter }}"></textarea>
+              <textarea name="texto{{ forloop.counter }}" cols="40" rows="10" id="id_texto{{ forloop.counter }}"></textarea>
             </p>
             <p>
               <label for="id_imagem{{ forloop.counter }}">Imagem:</label>
-              <input oninput='disableInput("id_texto{{ forloop.counter }}")' type="file" name="imagem{{ forloop.counter }}" accept="image/*" id="id_imagem{{ forloop.counter }}">
+              <input type="file" name="imagem{{ forloop.counter }}" accept="image/*" id="id_imagem{{ forloop.counter }}">
             </p>
           <hr>
           {% endfor %}
-          <input class="btn-save" onclick="gambiarraAtaulizar()"  type="submit" value="Salvar"/>
+          <input class="btn-save" type="submit" value="Salvar"/>
           <script>
-            function gambiarraAtaulizar(){
-              window.top.location.reload();
-              console.log("ta funfando")
-            }
             function disableInput(idDisable){
-              document.getElementById(idDisable).disabled = true; 
+              document.getElementById(idDisable).disabled = true;
             }
           </script>
         </form>

@@ -81,7 +81,7 @@
     display: none;
     z-index: 2;
 }
-.item-modal-gambiarra {
+.item-modal-custom {
     background-color: white;
     z-index: 99;
     margin: 0 auto;
@@ -131,22 +131,22 @@
     border-radius: 25px;
     border: none;
     box-shadow: 0px 9px 20px #00000085;
-    
+
 }
   </style>
-  
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
   <div id="modalCriarItem" class="modalCriarItem">
       <button style="
         position: absolute;
         right: 350px;
         top: 50px;
-    " class="btnClose" onclick="openModalCreate()"><i class="far fa-times-circle"></i></button></tr>
-       
+    " class="btnClose" onclick="closeModal()"><i class="far fa-times-circle"></i></button></tr>
+
           <iframe id="encoder_iframe" height=90% width="50%" src="{% url 'item_create' %}" class="iframeModalCriarItem">
             </iframe>
-       
-      
+
+
   </div>
   <script>
       function openModalCreate() {
@@ -158,7 +158,10 @@
           x.style.display = "none";
           document.body.style.overflow = "auto"
         }
-      }
+      };
+      function closeModal(){
+        location.reload();
+      };
   </script>
   <div class="container-fluid content-itens">
     <div>
@@ -170,7 +173,7 @@
       <form action="{% url 'my_item_list' %}" method="get">
         <input type="text" name="q"  class="form-control input-banco-itens" placeholder="Pesquisar">
       </form>
-    </div> 
+    </div>
     {% else %}
     <div style="margin-top: 100px;">
       <form action="{% url 'item_list' %}" method="get">
@@ -188,9 +191,9 @@
             </div>
             <div class="item-enunciado">
               <p style="display: table-cell;vertical-align: middle;">{{ item.enunciado|slice:":205" }}...</p>
-              
+
             </div>
-            
+
             <div class="item-more-details">
               <button type="button" class="btn btn-cta-secondary" onclick="openModal('itemModal{{ item.id }}')"><a href="#">Mais Detalhes</a></button>
             </div>
@@ -210,7 +213,7 @@
           </div>
         </div>
         <div id="background-modal" class="background-modal"></div>
-        <div class="item-modal-gambiarra" tabindex="-1" role="dialog" id="itemModal{{ item.id }}">
+        <div class="item-modal-custom" tabindex="-1" role="dialog" id="itemModal{{ item.id }}">
           <div class="cabecalho-modal">
             <table class="table-cabecalho">
               <tr>
@@ -237,12 +240,12 @@
               <p>{{ item.enunciado }}</p>
               {% if item.suporte_imagem %}
                <img src="media/{{item.suporte_imagem}}" alt="{{ item.enunciado }}">
-                
+
               {% else %}
                 <p>{{ item.suporte_texto }}</p>
-              {% endif %}  
-              
-              <p>{{ item.comando }}</p>  
+              {% endif %}
+
+              <p>{{ item.comando }}</p>
           </div>
           <div class="item-alternativas">
               {% for alternativa in item.alternativas.all %}
@@ -267,7 +270,7 @@
                     <td class="{% if alternativa.correta %} correta {% endif %}">
                         {{ alternativa.texto }}
                     </td>
-                  {% endif %}            
+                  {% endif %}
                 </tr>
               </table>
               {% endfor %}
@@ -275,7 +278,7 @@
         </div>
     {% empty %}
         <div>No articles yet.</div>
-    {% endfor %} 
+    {% endfor %}
     </div>
     </div>
   </div>
