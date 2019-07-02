@@ -246,9 +246,7 @@
           "class="{% if item.dificuldade == 'medio' %} medio {% endif %}{% if item.dificuldade == 'facil' %} facil {% endif %}{% if item.dificuldade == 'muito_facil' %} muito-facil {% endif %}{% if item.dificuldade == 'dificil' %} dificil {% endif %}{% if item.dificuldade == 'muito_dificil' %} muito-dificil {% endif %}"">{{item.dificuldade}}</b>
               <p>{{ item.enunciado }}</p>
               {% if item.suporte_imagem %}
-               <img src="media/{{item.suporte_imagem}}" alt="{{ item.enunciado }}" style="
-    max-width: 100%;
-">
+               <img src="media/{{item.suporte_imagem}}" alt="{{ item.enunciado }}" style="max-width: 40%;">
 
               {% else %}
                 <p>{{ item.suporte_texto }}</p>
