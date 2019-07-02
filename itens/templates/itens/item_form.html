@@ -260,25 +260,25 @@ select {
 <hr>
           {% for i in alternativas %}
           <h4>Alternativa {{i}}</h4>
-          
+
           <p>
               <label for="id_correta{{ forloop.counter }}">Correta:</label>
-              <input type="checkbox" onclick='selectOnlyThis("{{forloop.counter}}")' name="correta" id="id_correta{{ forloop.counter }}">
+              <input type="checkbox" onclick='selectOnlyThis("{{forloop.counter}}")' name="correta{{ forloop.counter }}"  id="id_correta{{ forloop.counter }}">
             </p>
             <p>
               <label for="id_texto{{ forloop.counter }}">Texto:</label>
-              <textarea  disabled name="texto" cols="40" rows="10" id="id_texto{{ forloop.counter }}"></textarea>
+              <textarea  disabled name="texto{{ forloop.counter }}" cols="40" rows="10" id="id_texto{{ forloop.counter }}"></textarea>
             </p>
             <p>
               <label for="id_imagem{{ forloop.counter }}">Imagem:</label>
-              <input disabled type="file" name="imagem" accept="image/*" id="id_imagem{{ forloop.counter }}">
+              <input disabled type="file" name="imagem{{ forloop.counter }}" saccept="image/*" id="id_imagem{{ forloop.counter }}">
             </p>
           <hr>
           {% endfor %}
 
           <input class="btn-save" type="submit" value="Salvar"/>
           <script>
-            
+
             x = document.getElementsByName("suporte_imagem")
             for(var i = 0; i < x.length; i++){
               x[i].disabled= true;
@@ -291,28 +291,23 @@ select {
             function disableInput(id){
               document.getElementById(id).disabled = true;
             }
-            
+
             function disableImage(){
-             z = document.getElementsByName("texto")
-              for(var i = 0; i < z.length; i++){
-                z[i].disabled = false;
-              }
-              x = document.getElementsByName("imagem")
-              for(var i = 0; i < x.length; i++){
-                x[i].disabled= true;
+              z = 5
+              for(var i = 1; i <= z; i++){
+                document.getElementById("id_texto" + i).disabled = false;
+                document.getElementById("id_imagem" + i).disabled = true;
               }
             }
-            function disableText() {
-              x = document.getElementsByName("imagem")
-              for(var i = 0; i < x.length; i++){
-                x[i].disabled= false;
+
+            function disableText(){
+              z = 5
+              for(var i = 1; i <= z; i++){
+                document.getElementById("id_texto" + i).disabled = true;
+                document.getElementById("id_imagem" + i).disabled = false;
               }
-              z = document.getElementsByName("texto")
-                for(var i = 0; i < z.length; i++){
-                  z[i].disabled = true;
-                }
             }
-            
+
             function disableImageSuporte(){
              z = document.getElementsByName("suporte_texto")
               for(var i = 0; i < z.length; i++){

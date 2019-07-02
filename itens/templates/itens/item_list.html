@@ -282,25 +282,26 @@
                   {% endif %}
                 </tr>
               </table>
-              
+
               {% endfor %}
-              
+
               <button onclick='capture("exportImage{{ item.id }}")' class="novo-item" style="
               margin-right: 25px;
           ">Exportar Imagem</button>
             </div>
         </div>
         <div class="exportImage" tabindex="-1" role="dialog" id="exportImage{{ item.id }}" style="
-        width: 50%;
+        padding: 20px;
         z-index: -1;
         position: absolute;
         background-color: white;
         top: 0;
+        width: 550px;
     ">
             <div class="conteudo-modal">
                 <p>{{ item.enunciado }}</p>
                 {% if item.suporte_imagem %}
-                 <img src="media/{{item.suporte_imagem}}" alt="{{ item.enunciado }}" style="max-width: 40%;">
+                 <img src="media/{{item.suporte_imagem}}" alt="{{ item.enunciado }}" style="max-width: 250px;margin-bottom: 25px;">
                 {% else %}
                   <p>{{ item.suporte_texto }}</p>
                 {% endif %}
@@ -332,7 +333,7 @@
                     {% endif %}
                   </tr>
                 </table>
-                
+
                 {% endfor %}
               </div>
           </div>
@@ -342,13 +343,13 @@
       width: 100%;
   ">Não existem itens para a busca. Seja o primeiro a cadastrar!</div>
     {% endfor %}
-    
+
     <script>
       function capture(id) {
-        
+
         html2canvas(document.getElementById(id), {
           scale: 10,
-          onrendered: function (canvas) { 
+          onrendered: function (canvas) {
             var a = document.createElement('a');
             // toDataURL defaults to png, so we need to request a jpeg, then convert for file download.
             a.href = canvas.toDataURL("image/png")
@@ -357,7 +358,7 @@
           }
         })
       }
-    
+
     </script>
     </div>
     </div>
