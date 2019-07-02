@@ -6,9 +6,9 @@
   <script src="https://kit.fontawesome.com/e2e8bb9805.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  
+
   <style>
-    
+
     *{
      font-family: 'Raleway', sans-serif;
     }
@@ -85,6 +85,8 @@
 body {
   overflow-x: hidden;
   height: 100%;
+  background-color: #eaeaea;
+
 }
 
 #sidebar-wrapper {
@@ -159,6 +161,7 @@ body {
 }
 .content-itens{
   padding: 10px 60px;
+  height: 100vh;
 }
 .imagem-profile-sidebar {
   background-image: url('https://www.loginradius.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png');
@@ -184,7 +187,7 @@ body {
           </div>
           <div class="list-group list-group-flush">
             <a href="{% url 'item_list' %}" class="list-group-item list-group-item-action itens-menu"><i class="fas fa-chalkboard icone-menu"></i></a>
-            <a href="{% url 'my_item_list' %}" class="list-group-item list-group-item-action itens-menu"><i class="fas fa-chalkboard-teacher icone-menu"></i></a> 
+            <a href="{% url 'my_item_list' %}" class="list-group-item list-group-item-action itens-menu"><i class="fas fa-chalkboard-teacher icone-menu"></i></a>
           </div>
           <a class="imagem-profile-sidebar" href="{% url 'logout' %}" style="
               position: absolute;
@@ -206,39 +209,39 @@ body {
 
       <style>
         /* --------------------------------
-      
+
         Primary style
-      
+
         -------------------------------- */
         *, *::after, *::before {
           -webkit-box-sizing: border-box;
           -moz-box-sizing: border-box;
           box-sizing: border-box;
         }
-      
+
         html {
           font-size: 62.5%;
         }
-      
+
         body {
           font-family: "Open Sans", sans-serif;
           color: #2c343b;
           background-color: #f2f2f2;
         }
-      
+
         a {
           color: #d44457;
           text-decoration: none;
         }
-      
+
         img {
           max-width: 100%;
         }
-      
+
         /* --------------------------------
-      
+
         Main Components
-      
+
         -------------------------------- */
         .cd-header {
           position: absolute;
@@ -257,7 +260,7 @@ body {
             background-color: transparent;
           }
         }
-      
+
         #cd-logo {
           float: left;
           margin: 13px 0 0 5%;
@@ -270,7 +273,7 @@ body {
             margin: 23px 0 0 5%;
           }
         }
-      
+
         .cd-primary-nav {
           /* mobile first - navigation hidden by default, triggered by tap/click on navigation icon */
           float: right;
@@ -344,18 +347,18 @@ body {
             border-top: none;
           }
         }
-      
+
         /* --------------------------------
-      
+
         Slider
-      
+
         -------------------------------- */
         .cd-hero {
           position: relative;
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
         }
-      
+
         .cd-hero-slider {
           position: relative;
           height: 360px;
@@ -406,11 +409,11 @@ body {
             height: 680px;
           }
         }
-      
+
         /* --------------------------------
-      
+
         Single slide style
-      
+
         -------------------------------- */
         .cd-hero-slider li {
           background-position: center center;
@@ -580,11 +583,11 @@ body {
             font-size: 1.6rem;
           }
         }
-      
+
         /* --------------------------------
-      
+
         Single slide animation
-      
+
         -------------------------------- */
         @media only screen and (min-width: 768px) {
           .cd-hero-slider .cd-half-width {
@@ -689,9 +692,9 @@ body {
           }
         }
         /* --------------------------------
-      
+
         Slider navigation
-      
+
         -------------------------------- */
         .cd-slider-nav {
           display: none;
@@ -842,11 +845,11 @@ body {
             top: 18px;
           }
         }
-      
+
         /* --------------------------------
-      
+
         Main content
-      
+
         -------------------------------- */
         .cd-main-content {
           width: 90%;
@@ -868,11 +871,11 @@ body {
             font-size: 1.6rem;
           }
         }
-      
+
         /* --------------------------------
-      
+
         Javascript disabled
-      
+
         -------------------------------- */
         .no-js .cd-hero-slider li {
           display: none;
@@ -880,16 +883,16 @@ body {
         .no-js .cd-hero-slider li.selected {
           display: block;
         }
-      
+
         .no-js .cd-slider-nav {
           display: none;
         }
-      
+
         /*
           *  Core Owl Carousel CSS File
           *  v1.3.3
           */
-      
+
         /* clearfix */
         .owl-carousel .owl-wrapper:after {
           content: ".";
@@ -923,11 +926,11 @@ body {
           -o-transition: height 500ms ease-in-out;
           transition: height 500ms ease-in-out;
         }
-      
+
         .owl-carousel .owl-item{
           float: left;
         }
-      
+
         .owl-controls {
           @media (max-width: @screen-sm-max) {
             top: -120px;
@@ -937,15 +940,15 @@ body {
           text-align: center;
           display: inline-block;
         }
-      
+
         .owl-controls a {
           color: #336699;
         }
-      
+
         .owl-controls a:hover {
           color: #336699;
         }
-      
+
         .owl-controls .bg-prev {
           position: absolute;
           z-index: 1;
@@ -960,7 +963,7 @@ body {
           -o-transform: rotate(45deg);
           transform: rotate(45deg);
         }
-      
+
         .owl-controls .bg-prev:before{
           content:"";
           display:block;
@@ -972,7 +975,7 @@ body {
           bottom:3px;
           border:2px solid #336699
         }
-      
+
         .owl-controls .prev {
           left: 15px;
           z-index: 11;
@@ -981,21 +984,21 @@ body {
           height: 50px;
           line-height: 32px;
         }
-      
+
         .owl-controls .prev.active {
           background-image: none;
           outline: 0;
           -webkit-box-shadow: none;
                   box-shadow: none;
         }
-      
+
         .owl-controls .prev:active {
           background-image: none;
           outline: 0;
           -webkit-box-shadow: none;
                   box-shadow: none;
         }
-      
+
         .owl-controls .bg-next {
           position: absolute;
           float: right;
@@ -1012,7 +1015,7 @@ body {
           -o-transform: rotate(45deg);
           transform: rotate(45deg);
         }
-      
+
         .owl-controls .bg-next:before{
           content:"";
           display:block;
@@ -1024,7 +1027,7 @@ body {
           bottom:3px;
           border:2px solid #336699
         }
-      
+
         .owl-controls .next {
           right: 15px;
           z-index: 11;
@@ -1033,22 +1036,22 @@ body {
           height: 50px;
           line-height: 32px;
         }
-      
+
         .owl-controls .next.active {
           background-image: none;
           outline: 0;
           -webkit-box-shadow: none;
                   box-shadow: none;
         }
-      
+
         .owl-controls .next:active {
           background-image: none;
           outline: 0;
           -webkit-box-shadow: none;
                   box-shadow: none;
         }
-      
-      
+
+
         .owl-theme .owl-controls .owl-page{
           cursor: pointer;
           display: inline-block;
@@ -1068,7 +1071,7 @@ body {
           background: transparent;
           border: 2px solid #888;
         }
-      
+
         .owl-theme .owl-controls .owl-page.active span,
         .owl-theme .owl-controls.clickable .owl-page:hover span{
           filter: Alpha(Opacity=100);/*IE7 fix*/
@@ -1083,7 +1086,7 @@ body {
           user-select: none;
           -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
         }
-      
+
         /* fix */
         .owl-carousel  .owl-wrapper,
         .owl-carousel  .owl-item{
@@ -1094,38 +1097,38 @@ body {
           -moz-transform: translate3d(0,0,0);
           -ms-transform: translate3d(0,0,0);
         }
-      
+
         /*
-      
+
         Vanilla Template
-      
+
         https://templatemo.com/tm-526-vanilla
-      
+
         */
-      
+
         p {
           font-size: 15px;
           line-height: 25px;
         }
-      
+
         section {
           padding: 25px 0 35px;
           background: #fff;
         }
-      
+
         body {
           position: relative; /* we need this for the scrollspy */
           font-size: 14px;
         }
-      
+
         a { color: #3CC; }
-      
+
         a:hover { color: #FF0; }
-      
+
         /*----------
           NAV
         ----------*/
-      
+
         .fixed-side-navbar {
           position: fixed;
           top: 50%;
@@ -1212,13 +1215,13 @@ body {
           color: black;
           display: block;
         }
-      
+
         .fadeInRight {
           -webkit-animation-name: fadeInRight;
                   animation-name: fadeInRight;
         }
-      
-      
+
+
         .primary-button a {
           display: inline-block;
           background-color: #278eff;
@@ -1231,21 +1234,21 @@ body {
           text-decoration: none;
           letter-spacing: 0.5px;
         }
-      
-      
+
+
         .parallax-content {
           width: 100%;
           min-height: 100vh;
           background-size: cover;
         }
-      
-      
+
+
         .baner-content {
           padding-top: 30vh;
           text-align: center;
           background-image: url("/static/bg1-landingpage.png");
         }
-      
+
         .baner-content h1 {
           margin-top: 0px;
           font-size: 128px;
@@ -1254,13 +1257,13 @@ body {
           text-transform: uppercase;
           margin-bottom: 0px;
         }
-      
+
         .baner-content em {
           color: #278eff;
           font-weight: 600;
           font-style: normal;
         }
-      
+
         .baner-content span {
           display: inline-block;
           margin-top: -20px;
@@ -1268,13 +1271,13 @@ body {
           font-size: 48px;
           color: #fff;
         }
-      
+
         .baner-content .primary-button {
           margin-top: 15px;
         }
-      
-      
-      
+
+
+
         .service-content {
           padding-left: 15px;
           padding-right: 15px;
@@ -1285,44 +1288,44 @@ body {
           background-size: cover;
           background-position: center center;
         }
-      
+
         .service-content .left-text h4 {
           font-size: 24px;
           font-weight: 500;
           color: #fff;
         }
-      
+
         h4, .h4 {
           font-size: 18px;
         }
-      
+
         .service-content .left-text .line-dec {
           width: 45px;
           height: 3px;
           background-color: #278eff;
           margin: 20px 0px 20px 0px;
         }
-      
+
         .service-content .left-text p {
           color: #fff;
         }
-      
+
         .service-content .left-text ul {
           padding: 0;
           margin-top: 30px;
           list-style: none;
         }
-      
+
         .service-content .left-text ul li {
           margin: 15px 0px;
           font-weight: 600;
           color: #fff;
         }
-      
+
         .service-content .left-text .primary-button {
           margin: 30px 0px;
         }
-      
+
         .service-content .service-item {
           background-color: rgba(0, 0, 0, 0.5);
           padding: 25px 30px;
@@ -1330,54 +1333,54 @@ body {
           color: #fff;
           margin-bottom: 30px;
         }
-      
+
         .service-content .service-item .line-dec {
           width: 45px;
           height: 3px;
           background-color: #278eff;
           margin: 20px auto 15px auto;
         }
-      
-      
-      
+
+
+
         .projects-content {
           padding-top: 20vh;
           background-image: url("/static/bg-landing3.png");
         }
-      
+
         .projects-content .item img {
           width: 100%;
         }
-      
+
         .projects-content .item {
           margin: 15px;
         }
-      
+
         .projects-content .item .text-content {
           background-color: #fff;
           text-align: center;
           padding: 20px;
         }
-      
+
         .projects-content .item .text-content h4 {
           margin-top: 0px;
           font-size: 19px;
           font-weight: 600;
         }
-      
+
         .projects-content .item .text-content span {
           font-style: normal;
           font-size: 17px;
           font-weight: 700;
           color: #278eff;
         }
-      
+
         .owl-pagination {
           margin-top: 40px;
           opacity: 1;
           display: inline-block;
         }
-      
+
         .owl-page span {
           display: block;
           width: 14px;
@@ -1390,8 +1393,8 @@ body {
           border-radius: 20px;
           background: #fff;
         }
-      
-      
+
+
         .tabs-content {
           padding-left: 15px;
           padding-right: 15px;
@@ -1402,28 +1405,28 @@ body {
           background-size: cover;
           background-position: center center;
         }
-      
+
         section {
           background-color: transparent;
           padding-bottom: 15px;
         }
-      
+
         .wrapper {
           text-align: center;
         }
-      
+
         .tabs {
           list-style: none;
           margin: 0px;
           padding: 0px;
         }
-      
+
         .tabs li {
           display: inline-block;
           text-align: center;
           margin: 10px;
         }
-      
+
         .tabs a {
           display:block;
           text-align:center;
@@ -1435,45 +1438,45 @@ body {
           padding:10px 15px;
           border:4px solid #fff;
         }
-      
+
         .tabs a:hover {
           color: #278eff;
         }
-      
+
         .tabs .active {
           border:4px solid #278eff;
         }
-      
+
         .tabgroup div  {
-      
+
         }
-      
+
         .tabgroup p {
           background-color: rgba(0, 0, 0, 0.5);
           color: #fff;
           padding: 25px;
         }
-      
+
         .clearfix:after {
           content:"";
           display:table;
           clear:both;
         }
-      
-      
+
+
         .contact-content {
           padding-left: 15px;
           padding-right: 15px;
           padding-top: 16vh;
           background-image: url(https://media2.s-nbcnews.com/i/newscms/2016_07/1424781/160219-college-application-test-prep-yh-0852a_d6c42d4ac1354669bacc03582e0f8b43.jpg);
         }
-      
+
         .contact-form {
           background-color: rgba(0, 0, 0, 0.5);
           padding: 30px 25px;
           margin-bottom: 30px;
         }
-      
+
         #contact input {
           border-radius: 3px;
           padding-left: 15px;
@@ -1488,7 +1491,7 @@ body {
           width: 100%;
           margin-bottom: 30px;
         }
-      
+
         #contact textarea {
           border-radius: 3px;
           padding-left: 15px;
@@ -1504,7 +1507,7 @@ body {
           width: 100%;
           margin-bottom: 25px;
         }
-      
+
         #contact button {
           display: inline-block;
           background-color: #278eff;
@@ -1518,37 +1521,37 @@ body {
           text-decoration: none;
           letter-spacing: 0.5px;
         }
-      
+
         .map {
           margin-bottom: 30px;
           width: 100%;
           background-color: rgba(0, 0, 0, 0.5);
           padding: 30px 20px;
         }
-      
-      
-      
+
+
+
         footer {
           text-align: center;
           background-color: #282b2f;
           padding: 70px 0px;
         }
-      
+
         footer .primary-button {
           margin-bottom: 30px;
         }
-      
+
         footer ul {
           padding: 0px;
           margin: 0px;
           list-style: none;
         }
-      
+
         footer ul li {
           display: inline-block;
           margin: 0px 4px;
         }
-      
+
         footer ul li a {
           width: 40px;
           height: 40px;
@@ -1562,12 +1565,12 @@ body {
           transition: all 0.5s;
           font-size: 17px;
         }
-      
+
         footer ul li a:hover {
           color: #282b2f;
           background-color: #ff8e43;
         }
-      
+
         footer p {
           font-size: 12px;
           color: #fff;
@@ -1576,50 +1579,50 @@ body {
           letter-spacing: 0.5px;
           margin-bottom: 0px;
         }
-      
+
         footer em {
           color: #ff8e43;
           font-weight: 600;
           font-style: normal;
         }
-      
+
         @media (max-width: 767px){
-      
+
           .baner-content {
             padding-top: 30vh;
           }
-      
+
           .baner-content h1 {
             font-size: 64px;
           }
-      
+
           .baner-content em {
           }
-      
+
           .baner-content span {
             font-size: 24px;
           }
-      
+
           .baner-content .primary-button {
             margin-top: 15px;
           }
-      
+
           .service-content {
             padding-top: 5vh;
             text-align: center;
           }
-      
+
           .service-content .left-text .line-dec {
             width: 45px;
             height: 3px;
             background-color: #278eff;
             margin: 20px auto 20px auto;
           }
-      
+
           .service-content .left-text ul {
             text-align: left;
           }
-      
+
           .service-content .service-item {
             background-color: rgba(0, 0, 0, 0.5);
             padding: 25px 30px;
@@ -1627,26 +1630,26 @@ body {
             color: #fff;
             margin-bottom: 30px;
           }
-      
+
         }
-      
+
         @media (min-width: 1200px) {
           .container {
             max-width: 1170px;
           }
         }
-      
+
         /* LIGHT BOX */
-      
+
         body:after {
           content: url(https://www.powerschool.com/wp-content/uploads/2018/09/close-icon-white.png) url(https://loading.io/spinners/rolling/lg.curve-bars-loading-indicator.gif) url(http://icons.iconarchive.com/icons/iconsmind/outline/512/Previous-icon.png) url(https://www.shareicon.net/download/2017/02/15/878716_right_512x512.png);
           display: none;
         }
-      
+
         body.lb-disable-scrolling {
           overflow: hidden;
         }
-      
+
         .lightboxOverlay {
           position: absolute;
           top: 0;
@@ -1657,7 +1660,7 @@ body {
           opacity: 0.8;
           display: none;
         }
-      
+
         .lightbox {
           position: absolute;
           top: 0;
@@ -1668,22 +1671,22 @@ body {
           line-height: 0;
           font-weight: normal;
         }
-      
+
         .lightbox .lb-image {
           display: block;
           height: auto;
           max-width: inherit;
           max-height: none;
           border-radius: 3px;
-      
+
           /* Image border */
           border: 4px solid white;
         }
-      
+
         .lightbox a img {
           border: none;
         }
-      
+
         .lb-outerContainer {
           position: relative;
           *zoom: 1;
@@ -1691,18 +1694,18 @@ body {
           height: 250px;
           margin: 0 auto;
           border-radius: 4px;
-      
+
           /* Background color behind image.
               This is visible during transitions. */
           background-color: white;
         }
-      
+
         .lb-outerContainer:after {
           content: "";
           display: table;
           clear: both;
         }
-      
+
         .lb-loader {
           position: absolute;
           top: 43%;
@@ -1712,7 +1715,7 @@ body {
           text-align: center;
           line-height: 0;
         }
-      
+
         .lb-cancel {
           display: block;
           width: 32px;
@@ -1720,7 +1723,7 @@ body {
           margin: 0 auto;
           background: url(../img/loading.gif) no-repeat;
         }
-      
+
         .lb-nav {
           position: absolute;
           top: 0;
@@ -1729,22 +1732,22 @@ body {
           width: 100%;
           z-index: 10;
         }
-      
+
         .lb-container > .nav {
           left: 0;
         }
-      
+
         .lb-nav a {
           outline: none;
           background-image: url('data:image/gif;base64,R0lGODlhAQABAPAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==');
         }
-      
+
         .lb-prev, .lb-next {
           height: 100%;
           cursor: pointer;
           display: block;
         }
-      
+
         .lb-nav a.lb-prev {
           width: 34%;
           left: 0;
@@ -1757,12 +1760,12 @@ body {
           -o-transition: opacity 0.6s;
           transition: opacity 0.6s;
         }
-      
+
         .lb-nav a.lb-prev:hover {
           filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
           opacity: 1;
         }
-      
+
         .lb-nav a.lb-next {
           width: 64%;
           right: 0;
@@ -1775,12 +1778,12 @@ body {
           -o-transition: opacity 0.6s;
           transition: opacity 0.6s;
         }
-      
+
         .lb-nav a.lb-next:hover {
           filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
           opacity: 1;
         }
-      
+
         .lb-dataContainer {
           margin: 0 auto;
           padding-top: 5px;
@@ -1793,35 +1796,35 @@ body {
           -webkit-border-bottom-right-radius: 4px;
           border-bottom-right-radius: 4px;
         }
-      
+
         .lb-dataContainer:after {
           content: "";
           display: table;
           clear: both;
         }
-      
+
         .lb-data {
           padding: 0 4px;
           color: #ccc;
         }
-      
+
         .lb-data .lb-details {
           width: 85%;
           float: left;
           text-align: left;
           line-height: 1.1em;
         }
-      
+
         .lb-data .lb-caption {
           font-size: 13px;
           font-weight: bold;
           line-height: 1em;
         }
-      
+
         .lb-data .lb-caption a {
           color: #4ae;
         }
-      
+
         .lb-data .lb-number {
           display: block;
           clear: left;
@@ -1829,7 +1832,7 @@ body {
           font-size: 12px;
           color: #999999;
         }
-      
+
         .lb-data .lb-close {
           display: block;
           float: right;
@@ -1845,7 +1848,7 @@ body {
           -o-transition: opacity 0.2s;
           transition: opacity 0.2s;
         }
-      
+
         .lb-data .lb-close:hover {
           cursor: pointer;
           filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
@@ -1866,7 +1869,7 @@ body {
           transform: rotateY(-10deg);
           -webkit-transform: rotateY(-10deg);
         }
-      
+
         .preview-image-3d-2 {
           background: rgba(100,100,100,0.5);
           -webkit-transform-style: preserve-3d;
@@ -1888,7 +1891,7 @@ body {
         -webkit-perspective: 137px;
         perspective: 137px;
       }
-      
+
       </style>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js" integrity="sha256-ffw+9zwShMev88XNrDgS0hLIuJkDfXhgyLogod77mn8=" crossorigin="anonymous"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
@@ -1911,7 +1914,7 @@ body {
           font-size: xx-large;
           color: white;
       ">Uma rede de questões</h1>
-      
+
                           <div class="line-dec"></div>
                           <p>Agilize o processo de elaboração de provas e atividades com o Banco de Itens. Confira suas vantagens:</p>
                           <ul>
@@ -1971,7 +1974,7 @@ body {
           * Released under the MIT license
           * https://github.com/lokesh/lightbox2/blob/master/LICENSE
           */
-      
+
         // Uses Node, AMD or browser globals to create a module.
         (function (root, factory) {
             if (typeof define === 'function' && define.amd) {
@@ -1987,17 +1990,17 @@ body {
                 root.lightbox = factory(root.jQuery);
             }
         }(this, function ($) {
-      
+
           function Lightbox(options) {
             this.album = [];
             this.currentImageIndex = void 0;
             this.init();
-      
+
             // options
             this.options = $.extend({}, this.constructor.defaults);
             this.option(options);
           }
-      
+
           // Descriptions of all options available on the demo site:
           // http://lokeshdhakar.com/projects/lightbox2/index.html#options
           Lightbox.defaults = {
@@ -2017,21 +2020,21 @@ body {
             Sanitize Title
             If the caption data is trusted, for example you are hardcoding it in, then leave this to false.
             This will free you to add html tags, such as links, in the caption.
-      
+
             If the caption data is user submitted or from some other untrusted source, then set this to true
             to prevent xss and other injection attacks.
               */
             sanitizeTitle: false
           };
-      
+
           Lightbox.prototype.option = function(options) {
             $.extend(this.options, options);
           };
-      
+
           Lightbox.prototype.imageCountLabel = function(currentImageNum, totalImages) {
             return this.options.albumLabel.replace(/%1/g, currentImageNum).replace(/%2/g, totalImages);
           };
-      
+
           Lightbox.prototype.init = function() {
             var self = this;
             // Both enable and build methods require the body tag to be in the DOM.
@@ -2040,7 +2043,7 @@ body {
               self.build();
             });
           };
-      
+
           // Loop through anchors and areamaps looking for either data-lightbox attributes or rel attributes
           // that contain 'lightbox'. When these are clicked, start lightbox.
           Lightbox.prototype.enable = function() {
@@ -2050,13 +2053,13 @@ body {
               return false;
             });
           };
-      
+
           // Build html for the lightbox and the overlay.
           // Attach event handlers to the new DOM elements. click click click
           Lightbox.prototype.build = function() {
             var self = this;
             $('<div id="lightboxOverlay" class="lightboxOverlay"></div><div id="lightbox" class="lightbox"><div class="lb-outerContainer"><div class="lb-container"><img class="lb-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" /><div class="lb-nav"><a class="lb-prev" href="" ></a><a class="lb-next" href="" ></a></div><div class="lb-loader"><a class="lb-cancel"></a></div></div></div><div class="lb-dataContainer"><div class="lb-data"><div class="lb-details"><span class="lb-caption"></span><span class="lb-number"></span></div><div class="lb-closeContainer"><a class="lb-close"></a></div></div></div></div>').appendTo($('body'));
-      
+
             // Cache jQuery objects
             this.$lightbox       = $('#lightbox');
             this.$overlay        = $('#lightboxOverlay');
@@ -2064,7 +2067,7 @@ body {
             this.$container      = this.$lightbox.find('.lb-container');
             this.$image          = this.$lightbox.find('.lb-image');
             this.$nav            = this.$lightbox.find('.lb-nav');
-      
+
             // Store css values for future lookup
             this.containerPadding = {
               top: parseInt(this.$container.css('padding-top'), 10),
@@ -2072,34 +2075,34 @@ body {
               bottom: parseInt(this.$container.css('padding-bottom'), 10),
               left: parseInt(this.$container.css('padding-left'), 10)
             };
-      
+
             this.imageBorderWidth = {
               top: parseInt(this.$image.css('border-top-width'), 10),
               right: parseInt(this.$image.css('border-right-width'), 10),
               bottom: parseInt(this.$image.css('border-bottom-width'), 10),
               left: parseInt(this.$image.css('border-left-width'), 10)
             };
-      
+
             // Attach event handlers to the newly minted DOM elements
             this.$overlay.hide().on('click', function() {
               self.end();
               return false;
             });
-      
+
             this.$lightbox.hide().on('click', function(event) {
               if ($(event.target).attr('id') === 'lightbox') {
                 self.end();
               }
               return false;
             });
-      
+
             this.$outerContainer.on('click', function(event) {
               if ($(event.target).attr('id') === 'lightbox') {
                 self.end();
               }
               return false;
             });
-      
+
             this.$lightbox.find('.lb-prev').on('click', function() {
               if (self.currentImageIndex === 0) {
                 self.changeImage(self.album.length - 1);
@@ -2108,7 +2111,7 @@ body {
               }
               return false;
             });
-      
+
             this.$lightbox.find('.lb-next').on('click', function() {
               if (self.currentImageIndex === self.album.length - 1) {
                 self.changeImage(0);
@@ -2117,14 +2120,14 @@ body {
               }
               return false;
             });
-      
+
             /*
               Show context menu for image on right-click
-      
+
               There is a div containing the navigation that spans the entire image and lives above of it. If
               you right-click, you are right clicking this div and not the image. This prevents users from
               saving the image or using other context menu actions with the image.
-      
+
               To fix this, when we detect the right mouse button is pressed down, but not yet clicked, we
               set pointer-events to none on the nav div. This is so that the upcoming right-click event on
               the next mouseup will bubble down to the image. Once the right-click/contextmenu event occurs
@@ -2134,7 +2137,7 @@ body {
             this.$nav.on('mousedown', function(event) {
               if (event.which === 3) {
                 self.$nav.css('pointer-events', 'none');
-      
+
                 self.$lightbox.one('contextmenu', function() {
                   setTimeout(function() {
                       this.$nav.css('pointer-events', 'auto');
@@ -2142,41 +2145,41 @@ body {
                 });
               }
             });
-      
-      
+
+
             this.$lightbox.find('.lb-loader, .lb-close').on('click', function() {
               self.end();
               return false;
             });
           };
-      
+
           // Show overlay and lightbox. If the image is part of a set, add siblings to album array.
           Lightbox.prototype.start = function($link) {
             var self    = this;
             var $window = $(window);
-      
+
             $window.on('resize', $.proxy(this.sizeOverlay, this));
-      
+
             $('select, object, embed').css({
               visibility: 'hidden'
             });
-      
+
             this.sizeOverlay();
-      
+
             this.album = [];
             var imageNumber = 0;
-      
+
             function addToAlbum($link) {
               self.album.push({
                 link: $link.attr('href'),
                 title: $link.attr('data-title') || $link.attr('title')
               });
             }
-      
+
             // Support both data-lightbox attribute and rel attribute implementations
             var dataLightboxValue = $link.attr('data-lightbox');
             var $links;
-      
+
             if (dataLightboxValue) {
               $links = $($link.prop('tagName') + '[data-lightbox="' + dataLightboxValue + '"]');
               for (var i = 0; i < $links.length; i = ++i) {
@@ -2200,7 +2203,7 @@ body {
                 }
               }
             }
-      
+
             // Position Lightbox
             var top  = $window.scrollTop() + this.options.positionFromTop;
             var left = $window.scrollLeft();
@@ -2208,29 +2211,29 @@ body {
               top: top + 'px',
               left: left + 'px'
             }).fadeIn(this.options.fadeDuration);
-      
+
             // Disable scrolling of the page while open
             if (this.options.disableScrolling) {
               $('body').addClass('lb-disable-scrolling');
             }
-      
+
             this.changeImage(imageNumber);
           };
-      
+
           // Hide most UI elements in preparation for the animated resizing of the lightbox.
           Lightbox.prototype.changeImage = function(imageNumber) {
             var self = this;
-      
+
             this.disableKeyboardNav();
             var $image = this.$lightbox.find('.lb-image');
-      
+
             this.$overlay.fadeIn(this.options.fadeDuration);
-      
+
             $('.lb-loader').fadeIn('slow');
             this.$lightbox.find('.lb-image, .lb-nav, .lb-prev, .lb-next, .lb-dataContainer, .lb-numbers, .lb-caption').hide();
-      
+
             this.$outerContainer.addClass('animating');
-      
+
             // When image to show is preloaded, we send the width and height to sizeContainer()
             var preloader = new Image();
             preloader.onload = function() {
@@ -2241,23 +2244,23 @@ body {
               var maxImageWidth;
               var windowHeight;
               var windowWidth;
-      
+
               $image.attr('src', self.album[imageNumber].link);
-      
+
               $preloader = $(preloader);
-      
+
               $image.width(preloader.width);
               $image.height(preloader.height);
-      
+
               if (self.options.fitImagesInViewport) {
                 // Fit image inside the viewport.
                 // Take into account the border around the image and an additional 10px gutter on each side.
-      
+
                 windowWidth    = $(window).width();
                 windowHeight   = $(window).height();
                 maxImageWidth  = windowWidth - self.containerPadding.left - self.containerPadding.right - self.imageBorderWidth.left - self.imageBorderWidth.right - 20;
                 maxImageHeight = windowHeight - self.containerPadding.top - self.containerPadding.bottom - self.imageBorderWidth.top - self.imageBorderWidth.bottom - 120;
-      
+
                 // Check if image size is larger then maxWidth|maxHeight in settings
                 if (self.options.maxWidth && self.options.maxWidth < maxImageWidth) {
                   maxImageWidth = self.options.maxWidth;
@@ -2265,7 +2268,7 @@ body {
                 if (self.options.maxHeight && self.options.maxHeight < maxImageWidth) {
                   maxImageHeight = self.options.maxHeight;
                 }
-      
+
                 // Is there a fitting issue?
                 if ((preloader.width > maxImageWidth) || (preloader.height > maxImageHeight)) {
                   if ((preloader.width / maxImageWidth) > (preloader.height / maxImageHeight)) {
@@ -2283,34 +2286,34 @@ body {
               }
               self.sizeContainer($image.width(), $image.height());
             };
-      
+
             preloader.src          = this.album[imageNumber].link;
             this.currentImageIndex = imageNumber;
           };
-      
+
           // Stretch overlay to fit the viewport
           Lightbox.prototype.sizeOverlay = function() {
             this.$overlay
               .width($(document).width())
               .height($(document).height());
           };
-      
+
           // Animate the size of the lightbox to fit the image we are showing
           Lightbox.prototype.sizeContainer = function(imageWidth, imageHeight) {
             var self = this;
-      
+
             var oldWidth  = this.$outerContainer.outerWidth();
             var oldHeight = this.$outerContainer.outerHeight();
             var newWidth  = imageWidth + this.containerPadding.left + this.containerPadding.right + this.imageBorderWidth.left + this.imageBorderWidth.right;
             var newHeight = imageHeight + this.containerPadding.top + this.containerPadding.bottom + this.imageBorderWidth.top + this.imageBorderWidth.bottom;
-      
+
             function postResize() {
               self.$lightbox.find('.lb-dataContainer').width(newWidth);
               self.$lightbox.find('.lb-prevLink').height(newHeight);
               self.$lightbox.find('.lb-nextLink').height(newHeight);
               self.showImage();
             }
-      
+
             if (oldWidth !== newWidth || oldHeight !== newHeight) {
               this.$outerContainer.animate({
                 width: newWidth,
@@ -2322,18 +2325,18 @@ body {
               postResize();
             }
           };
-      
+
           // Display the image and its details and begin preload neighboring images.
           Lightbox.prototype.showImage = function() {
             this.$lightbox.find('.lb-loader').stop(true).hide();
             this.$lightbox.find('.lb-image').fadeIn(this.options.imageFadeDuration);
-      
+
             this.updateNav();
             this.updateDetails();
             this.preloadNeighboringImages();
             this.enableKeyboardNav();
           };
-      
+
           // Display previous and next navigation if appropriate.
           Lightbox.prototype.updateNav = function() {
             // Check to see if the browser supports touch events. If so, we take the conservative approach
@@ -2344,9 +2347,9 @@ body {
               document.createEvent('TouchEvent');
               alwaysShowNav = (this.options.alwaysShowNavOnTouchDevices) ? true : false;
             } catch (e) {}
-      
+
             this.$lightbox.find('.lb-nav').show();
-      
+
             if (this.album.length > 1) {
               if (this.options.wrapAround) {
                 if (alwaysShowNav) {
@@ -2369,11 +2372,11 @@ body {
               }
             }
           };
-      
+
           // Display caption, image number, and closing button.
           Lightbox.prototype.updateDetails = function() {
             var self = this;
-      
+
             // Enable anchor clicks in the injected caption html.
             // Thanks Nate Wright for the fix. @https://github.com/NateWr
             if (typeof this.album[this.currentImageIndex].title !== 'undefined' &&
@@ -2393,21 +2396,21 @@ body {
                   }
                 });
             }
-      
+
             if (this.album.length > 1 && this.options.showImageNumberLabel) {
               var labelText = this.imageCountLabel(this.currentImageIndex + 1, this.album.length);
               this.$lightbox.find('.lb-number').text(labelText).fadeIn('fast');
             } else {
               this.$lightbox.find('.lb-number').hide();
             }
-      
+
             this.$outerContainer.removeClass('animating');
-      
+
             this.$lightbox.find('.lb-dataContainer').fadeIn(this.options.resizeDuration, function() {
               return self.sizeOverlay();
             });
           };
-      
+
           // Preload previous and next images in set.
           Lightbox.prototype.preloadNeighboringImages = function() {
             if (this.album.length > this.currentImageIndex + 1) {
@@ -2419,20 +2422,20 @@ body {
               preloadPrev.src = this.album[this.currentImageIndex - 1].link;
             }
           };
-      
+
           Lightbox.prototype.enableKeyboardNav = function() {
             $(document).on('keyup.keyboard', $.proxy(this.keyboardAction, this));
           };
-      
+
           Lightbox.prototype.disableKeyboardNav = function() {
             $(document).off('.keyboard');
           };
-      
+
           Lightbox.prototype.keyboardAction = function(event) {
             var KEYCODE_ESC        = 27;
             var KEYCODE_LEFTARROW  = 37;
             var KEYCODE_RIGHTARROW = 39;
-      
+
             var keycode = event.keyCode;
             var key     = String.fromCharCode(keycode).toLowerCase();
             if (keycode === KEYCODE_ESC || key.match(/x|o|c/)) {
@@ -2451,7 +2454,7 @@ body {
               }
             }
           };
-      
+
           // Closing time. :-(
           Lightbox.prototype.end = function() {
             this.disableKeyboardNav();
@@ -2465,19 +2468,19 @@ body {
               $('body').removeClass('lb-disable-scrolling');
             }
           };
-      
+
           return new Lightbox();
         }));
-      
-      
+
+
         /*!
           * parallax.js v1.4.2 (https://pixelcog.github.io/parallax.js/)
           * @copyright 2016 PixelCog, Inc.
           * @license MIT (https://github.com/pixelcog/parallax.js/blob/master/LICENSE)
           */
         !function(t,i,e,s){function o(i,e){var h=this;"object"==typeof e&&(delete e.refresh,delete e.render,t.extend(this,e)),this.$element=t(i),!this.imageSrc&&this.$element.is("img")&&(this.imageSrc=this.$element.attr("src"));var r=(this.position+"").toLowerCase().match(/\S+/g)||[];if(r.length<1&&r.push("center"),1==r.length&&r.push(r[0]),("top"==r[0]||"bottom"==r[0]||"left"==r[1]||"right"==r[1])&&(r=[r[1],r[0]]),this.positionX!=s&&(r[0]=this.positionX.toLowerCase()),this.positionY!=s&&(r[1]=this.positionY.toLowerCase()),h.positionX=r[0],h.positionY=r[1],"left"!=this.positionX&&"right"!=this.positionX&&(this.positionX=isNaN(parseInt(this.positionX))?"center":parseInt(this.positionX)),"top"!=this.positionY&&"bottom"!=this.positionY&&(this.positionY=isNaN(parseInt(this.positionY))?"center":parseInt(this.positionY)),this.position=this.positionX+(isNaN(this.positionX)?"":"px")+" "+this.positionY+(isNaN(this.positionY)?"":"px"),navigator.userAgent.match(/(iPod|iPhone|iPad)/))return this.imageSrc&&this.iosFix&&!this.$element.is("img")&&this.$element.css({backgroundImage:"url("+this.imageSrc+")",backgroundSize:"cover",backgroundPosition:this.position}),this;if(navigator.userAgent.match(/(Android)/))return this.imageSrc&&this.androidFix&&!this.$element.is("img")&&this.$element.css({backgroundImage:"url("+this.imageSrc+")",backgroundSize:"cover",backgroundPosition:this.position}),this;this.$mirror=t("<div />").prependTo("body");var a=this.$element.find(">.parallax-slider"),n=!1;0==a.length?this.$slider=t("<img />").prependTo(this.$mirror):(this.$slider=a.prependTo(this.$mirror),n=!0),this.$mirror.addClass("parallax-mirror").css({visibility:"hidden",zIndex:this.zIndex,position:"fixed",top:0,left:0,overflow:"hidden"}),this.$slider.addClass("parallax-slider").one("load",function(){h.naturalHeight&&h.naturalWidth||(h.naturalHeight=this.naturalHeight||this.height||1,h.naturalWidth=this.naturalWidth||this.width||1),h.aspectRatio=h.naturalWidth/h.naturalHeight,o.isSetup||o.setup(),o.sliders.push(h),o.isFresh=!1,o.requestRender()}),n||(this.$slider[0].src=this.imageSrc),(this.naturalHeight&&this.naturalWidth||this.$slider[0].complete||a.length>0)&&this.$slider.trigger("load")}function h(s){return this.each(function(){var h=t(this),r="object"==typeof s&&s;this==i||this==e||h.is("body")?o.configure(r):h.data("px.parallax")?"object"==typeof s&&t.extend(h.data("px.parallax"),r):(r=t.extend({},h.data(),r),h.data("px.parallax",new o(this,r))),"string"==typeof s&&("destroy"==s?o.destroy(this):o[s]())})}!function(){for(var t=0,e=["ms","moz","webkit","o"],s=0;s<e.length&&!i.requestAnimationFrame;++s)i.requestAnimationFrame=i[e[s]+"RequestAnimationFrame"],i.cancelAnimationFrame=i[e[s]+"CancelAnimationFrame"]||i[e[s]+"CancelRequestAnimationFrame"];i.requestAnimationFrame||(i.requestAnimationFrame=function(e){var s=(new Date).getTime(),o=Math.max(0,16-(s-t)),h=i.setTimeout(function(){e(s+o)},o);return t=s+o,h}),i.cancelAnimationFrame||(i.cancelAnimationFrame=function(t){clearTimeout(t)})}(),t.extend(o.prototype,{speed:.2,bleed:0,zIndex:-100,iosFix:!0,androidFix:!0,position:"center",overScrollFix:!1,refresh:function(){this.boxWidth=this.$element.outerWidth(),this.boxHeight=this.$element.outerHeight()+2*this.bleed,this.boxOffsetTop=this.$element.offset().top-this.bleed,this.boxOffsetLeft=this.$element.offset().left,this.boxOffsetBottom=this.boxOffsetTop+this.boxHeight;var t=o.winHeight,i=o.docHeight,e=Math.min(this.boxOffsetTop,i-t),s=Math.max(this.boxOffsetTop+this.boxHeight-t,0),h=this.boxHeight+(e-s)*(1-this.speed)|0,r=(this.boxOffsetTop-e)*(1-this.speed)|0;if(h*this.aspectRatio>=this.boxWidth){this.imageWidth=h*this.aspectRatio|0,this.imageHeight=h,this.offsetBaseTop=r;var a=this.imageWidth-this.boxWidth;this.offsetLeft="left"==this.positionX?0:"right"==this.positionX?-a:isNaN(this.positionX)?-a/2|0:Math.max(this.positionX,-a)}else{this.imageWidth=this.boxWidth,this.imageHeight=this.boxWidth/this.aspectRatio|0,this.offsetLeft=0;var a=this.imageHeight-h;this.offsetBaseTop="top"==this.positionY?r:"bottom"==this.positionY?r-a:isNaN(this.positionY)?r-a/2|0:r+Math.max(this.positionY,-a)}},render:function(){var t=o.scrollTop,i=o.scrollLeft,e=this.overScrollFix?o.overScroll:0,s=t+o.winHeight;this.boxOffsetBottom>t&&this.boxOffsetTop<=s?(this.visibility="visible",this.mirrorTop=this.boxOffsetTop-t,this.mirrorLeft=this.boxOffsetLeft-i,this.offsetTop=this.offsetBaseTop-this.mirrorTop*(1-this.speed)):this.visibility="hidden",this.$mirror.css({transform:"translate3d(0px, 0px, 0px)",visibility:this.visibility,top:this.mirrorTop-e,left:this.mirrorLeft,height:this.boxHeight,width:this.boxWidth}),this.$slider.css({transform:"translate3d(0px, 0px, 0px)",position:"absolute",top:this.offsetTop,left:this.offsetLeft,height:this.imageHeight,width:this.imageWidth,maxWidth:"none"})}}),t.extend(o,{scrollTop:0,scrollLeft:0,winHeight:0,winWidth:0,docHeight:1<<30,docWidth:1<<30,sliders:[],isReady:!1,isFresh:!1,isBusy:!1,setup:function(){if(!this.isReady){var s=t(e),h=t(i),r=function(){o.winHeight=h.height(),o.winWidth=h.width(),o.docHeight=s.height(),o.docWidth=s.width()},a=function(){var t=h.scrollTop(),i=o.docHeight-o.winHeight,e=o.docWidth-o.winWidth;o.scrollTop=Math.max(0,Math.min(i,t)),o.scrollLeft=Math.max(0,Math.min(e,h.scrollLeft())),o.overScroll=Math.max(t-i,Math.min(t,0))};h.on("resize.px.parallax load.px.parallax",function(){r(),o.isFresh=!1,o.requestRender()}).on("scroll.px.parallax load.px.parallax",function(){a(),o.requestRender()}),r(),a(),this.isReady=!0}},configure:function(i){"object"==typeof i&&(delete i.refresh,delete i.render,t.extend(this.prototype,i))},refresh:function(){t.each(this.sliders,function(){this.refresh()}),this.isFresh=!0},render:function(){this.isFresh||this.refresh(),t.each(this.sliders,function(){this.render()})},requestRender:function(){var t=this;this.isBusy||(this.isBusy=!0,i.requestAnimationFrame(function(){t.render(),t.isBusy=!1}))},destroy:function(e){var s,h=t(e).data("px.parallax");for(h.$mirror.remove(),s=0;s<this.sliders.length;s+=1)this.sliders[s]==h&&this.sliders.splice(s,1);t(e).data("px.parallax",!1),0===this.sliders.length&&(t(i).off("scroll.px.parallax resize.px.parallax load.px.parallax"),this.isReady=!1,o.isSetup=!1)}});var r=t.fn.parallax;t.fn.parallax=h,t.fn.parallax.Constructor=o,t.fn.parallax.noConflict=function(){return t.fn.parallax=r,this},t(e).on("ready.px.parallax.data-api",function(){t('[data-parallax="scroll"]').parallax()})}(jQuery,window,document);
-      
-      
+
+
         /*
           *  jQuery OwlCarousel v1.3.3
           *
@@ -2487,11 +2490,11 @@ body {
           *  Licensed under MIT
           *
           */
-      
+
         /*JS Lint helpers: */
         /*global dragMove: false, dragEnd: false, $, jQuery, alert, window, document */
         /*jslint nomen: true, continue:true */
-      
+
         if (typeof Object.create !== "function") {
             Object.create = function (obj) {
                 function F() {}
@@ -2500,21 +2503,21 @@ body {
             };
         }
         (function ($, window, document) {
-      
+
             var Carousel = {
                 init : function (options, el) {
                     var base = this;
-      
+
                     base.$elem = $(el);
                     base.options = $.extend({}, $.fn.owlCarousel.options, base.$elem.data(), options);
-      
+
                     base.userOptions = options;
                     base.loadContent();
                 },
-      
+
                 loadContent : function () {
                     var base = this, url;
-      
+
                     function getData(data) {
                         var i, content = "";
                         if (typeof base.options.jsonSuccess === "function") {
@@ -2529,11 +2532,11 @@ body {
                         }
                         base.logIn();
                     }
-      
+
                     if (typeof base.options.beforeInit === "function") {
                         base.options.beforeInit.apply(this, [base.$elem]);
                     }
-      
+
                     if (typeof base.options.jsonPath === "string") {
                         url = base.options.jsonPath;
                         $.getJSON(url, getData);
@@ -2541,13 +2544,13 @@ body {
                         base.logIn();
                     }
                 },
-      
+
                 logIn : function () {
                     var base = this;
-      
+
                     base.$elem.data("owl-originalStyles", base.$elem.attr("style"));
                     base.$elem.data("owl-originalClasses", base.$elem.attr("class"));
-      
+
                     base.$elem.css({opacity: 0});
                     base.orignalItems = base.options.items;
                     base.checkBrowser();
@@ -2555,7 +2558,7 @@ body {
                     base.checkVisible = null;
                     base.setVars();
                 },
-      
+
                 setVars : function () {
                     var base = this;
                     if (base.$elem.children().length === 0) {return false; }
@@ -2573,7 +2576,7 @@ body {
                     base.customEvents();
                     base.onStartup();
                 },
-      
+
                 onStartup : function () {
                     var base = this;
                     base.updateItems();
@@ -2584,7 +2587,7 @@ body {
                     base.moveEvents();
                     base.stopOnHover();
                     base.owlStatus();
-      
+
                     if (base.options.transitionStyle !== false) {
                         base.transitionTypes(base.options.transitionStyle);
                     }
@@ -2592,9 +2595,9 @@ body {
                         base.options.autoPlay = 5000;
                     }
                     base.play();
-      
+
                     base.$elem.find(".owl-wrapper").css("display", "block");
-      
+
                     if (!base.$elem.is(":visible")) {
                         base.watchVisibility();
                     } else {
@@ -2606,10 +2609,10 @@ body {
                         base.options.afterInit.apply(this, [base.$elem]);
                     }
                 },
-      
+
                 eachMoveUpdate : function () {
                     var base = this;
-      
+
                     if (base.options.lazyLoad === true) {
                         base.lazyLoad();
                     }
@@ -2617,12 +2620,12 @@ body {
                         base.autoHeight();
                     }
                     base.onVisibleItems();
-      
+
                     if (typeof base.options.afterAction === "function") {
                         base.options.afterAction.apply(this, [base.$elem]);
                     }
                 },
-      
+
                 updateVars : function () {
                     var base = this;
                     if (typeof base.options.beforeUpdate === "function") {
@@ -2638,17 +2641,17 @@ body {
                         base.options.afterUpdate.apply(this, [base.$elem]);
                     }
                 },
-      
+
                 reload : function () {
                     var base = this;
                     window.setTimeout(function () {
                         base.updateVars();
                     }, 0);
                 },
-      
+
                 watchVisibility : function () {
                     var base = this;
-      
+
                     if (base.$elem.is(":visible") === false) {
                         base.$elem.css({opacity: 0});
                         window.clearInterval(base.autoPlayInterval);
@@ -2664,7 +2667,7 @@ body {
                         }
                     }, 500);
                 },
-      
+
                 wrapItems : function () {
                     var base = this;
                     base.$userItems.wrapAll("<div class=\"owl-wrapper\">").wrap("<div class=\"owl-item\"></div>");
@@ -2672,24 +2675,24 @@ body {
                     base.wrapperOuter = base.$elem.find(".owl-wrapper-outer");
                     base.$elem.css("display", "block");
                 },
-      
+
                 baseClass : function () {
                     var base = this,
                         hasBaseClass = base.$elem.hasClass(base.options.baseClass),
                         hasThemeClass = base.$elem.hasClass(base.options.theme);
-      
+
                     if (!hasBaseClass) {
                         base.$elem.addClass(base.options.baseClass);
                     }
-      
+
                     if (!hasThemeClass) {
                         base.$elem.addClass(base.options.theme);
                     }
                 },
-      
+
                 updateItems : function () {
                     var base = this, width, i;
-      
+
                     if (base.options.responsive === false) {
                         return false;
                     }
@@ -2703,61 +2706,61 @@ body {
                         base.options.itemsMobile = false;
                         return false;
                     }
-      
+
                     width = $(base.options.responsiveBaseWidth).width();
-      
+
                     if (width > (base.options.itemsDesktop[0] || base.orignalItems)) {
                         base.options.items = base.orignalItems;
                     }
                     if (base.options.itemsCustom !== false) {
                         //Reorder array by screen size
                         base.options.itemsCustom.sort(function (a, b) {return a[0] - b[0]; });
-      
+
                         for (i = 0; i < base.options.itemsCustom.length; i += 1) {
                             if (base.options.itemsCustom[i][0] <= width) {
                                 base.options.items = base.options.itemsCustom[i][1];
                             }
                         }
-      
+
                     } else {
-      
+
                         if (width <= base.options.itemsDesktop[0] && base.options.itemsDesktop !== false) {
                             base.options.items = base.options.itemsDesktop[1];
                         }
-      
+
                         if (width <= base.options.itemsDesktopSmall[0] && base.options.itemsDesktopSmall !== false) {
                             base.options.items = base.options.itemsDesktopSmall[1];
                         }
-      
+
                         if (width <= base.options.itemsTablet[0] && base.options.itemsTablet !== false) {
                             base.options.items = base.options.itemsTablet[1];
                         }
-      
+
                         if (width <= base.options.itemsTabletSmall[0] && base.options.itemsTabletSmall !== false) {
                             base.options.items = base.options.itemsTabletSmall[1];
                         }
-      
+
                         if (width <= base.options.itemsMobile[0] && base.options.itemsMobile !== false) {
                             base.options.items = base.options.itemsMobile[1];
                         }
                     }
-      
+
                     //if number of items is less than declared
                     if (base.options.items > base.itemsAmount && base.options.itemsScaleUp === true) {
                         base.options.items = base.itemsAmount;
                     }
                 },
-      
+
                 response : function () {
                     var base = this,
                         smallDelay,
                         lastWindowWidth;
-      
+
                     if (base.options.responsive !== true) {
                         return false;
                     }
                     lastWindowWidth = $(window).width();
-      
+
                     base.resizer = function () {
                         if ($(window).width() !== lastWindowWidth) {
                             if (base.options.autoPlay !== false) {
@@ -2772,7 +2775,7 @@ body {
                     };
                     $(window).resize(base.resizer);
                 },
-      
+
                 updatePosition : function () {
                     var base = this;
                     base.jumpTo(base.currentItem);
@@ -2780,18 +2783,18 @@ body {
                         base.checkAp();
                     }
                 },
-      
+
                 appendItemsSizes : function () {
                     var base = this,
                         roundPages = 0,
                         lastItem = base.itemsAmount - base.options.items;
-      
+
                     base.$owlItems.each(function (index) {
                         var $this = $(this);
                         $this
                             .css({"width": base.itemWidth})
                             .data("owl-item", Number(index));
-      
+
                         if (index % base.options.items === 0 || index === lastItem) {
                             if (!(index > lastItem)) {
                                 roundPages += 1;
@@ -2800,18 +2803,18 @@ body {
                         $this.data("owl-roundPages", roundPages);
                     });
                 },
-      
+
                 appendWrapperSizes : function () {
                     var base = this,
                         width = base.$owlItems.length * base.itemWidth;
-      
+
                     base.$owlWrapper.css({
                         "width": width * 2,
                         "left": 0
                     });
                     base.appendItemsSizes();
                 },
-      
+
                 calculateAll : function () {
                     var base = this;
                     base.calculateWidth();
@@ -2819,12 +2822,12 @@ body {
                     base.loops();
                     base.max();
                 },
-      
+
                 calculateWidth : function () {
                     var base = this;
                     base.itemWidth = Math.round(base.$elem.width() / base.options.items);
                 },
-      
+
                 max : function () {
                     var base = this,
                         maximum = ((base.itemsAmount * base.itemWidth) - base.options.items * base.itemWidth) * -1;
@@ -2838,11 +2841,11 @@ body {
                     }
                     return maximum;
                 },
-      
+
                 min : function () {
                     return 0;
                 },
-      
+
                 loops : function () {
                     var base = this,
                         prev = 0,
@@ -2850,14 +2853,14 @@ body {
                         i,
                         item,
                         roundPageNum;
-      
+
                     base.positionsInArray = [0];
                     base.pagesInArray = [];
-      
+
                     for (i = 0; i < base.itemsAmount; i += 1) {
                         elWidth += base.itemWidth;
                         base.positionsInArray.push(-elWidth);
-      
+
                         if (base.options.scrollPerPage === true) {
                             item = $(base.$owlItems[i]);
                             roundPageNum = item.data("owl-roundPages");
@@ -2868,7 +2871,7 @@ body {
                         }
                     }
                 },
-      
+
                 buildControls : function () {
                     var base = this;
                     if (base.options.navigation === true || base.options.pagination === true) {
@@ -2881,30 +2884,30 @@ body {
                         base.buildButtons();
                     }
                 },
-      
+
                 buildButtons : function () {
                     var base = this,
                         buttonsWrapper = $("<div class=\"owl-buttons\"/>");
                     base.owlControls.append(buttonsWrapper);
-      
+
                     base.buttonPrev = $("<div/>", {
                         "class" : "owl-prev",
                         "html" : base.options.navigationText[0] || ""
                     });
-      
+
                     base.buttonNext = $("<div/>", {
                         "class" : "owl-next",
                         "html" : base.options.navigationText[1] || ""
                     });
-      
+
                     buttonsWrapper
                         .append(base.buttonPrev)
                         .append(base.buttonNext);
-      
+
                     buttonsWrapper.on("touchstart.owlControls mousedown.owlControls", "div[class^=\"owl\"]", function (event) {
                         event.preventDefault();
                     });
-      
+
                     buttonsWrapper.on("touchend.owlControls mouseup.owlControls", "div[class^=\"owl\"]", function (event) {
                         event.preventDefault();
                         if ($(this).hasClass("owl-next")) {
@@ -2914,13 +2917,13 @@ body {
                         }
                     });
                 },
-      
+
                 buildPagination : function () {
                     var base = this;
-      
+
                     base.paginationWrapper = $("<div class=\"owl-pagination\"/>");
                     base.owlControls.append(base.paginationWrapper);
-      
+
                     base.paginationWrapper.on("touchend.owlControls mouseup.owlControls", ".owl-page", function (event) {
                         event.preventDefault();
                         if (Number($(this).data("owl-page")) !== base.currentItem) {
@@ -2928,7 +2931,7 @@ body {
                         }
                     });
                 },
-      
+
                 updatePagination : function () {
                     var base = this,
                         counter,
@@ -2937,16 +2940,16 @@ body {
                         i,
                         paginationButton,
                         paginationButtonInner;
-      
+
                     if (base.options.pagination === false) {
                         return false;
                     }
-      
+
                     base.paginationWrapper.html("");
-      
+
                     counter = 0;
                     lastPage = base.itemsAmount - base.itemsAmount % base.options.items;
-      
+
                     for (i = 0; i < base.itemsAmount; i += 1) {
                         if (i % base.options.items === 0) {
                             counter += 1;
@@ -2961,10 +2964,10 @@ body {
                                 "class": base.options.paginationNumbers === true ? "owl-numbers" : ""
                             });
                             paginationButton.append(paginationButtonInner);
-      
+
                             paginationButton.data("owl-page", lastPage === i ? lastItem : i);
                             paginationButton.data("owl-roundPages", counter);
-      
+
                             base.paginationWrapper.append(paginationButton);
                         }
                     }
@@ -2984,10 +2987,10 @@ body {
                         }
                     });
                 },
-      
+
                 checkNavigation : function () {
                     var base = this;
-      
+
                     if (base.options.navigation === false) {
                         return false;
                     }
@@ -3007,7 +3010,7 @@ body {
                         }
                     }
                 },
-      
+
                 updateControls : function () {
                     var base = this;
                     base.updatePagination();
@@ -3020,21 +3023,21 @@ body {
                         }
                     }
                 },
-      
+
                 destroyControls : function () {
                     var base = this;
                     if (base.owlControls) {
                         base.owlControls.remove();
                     }
                 },
-      
+
                 next : function (speed) {
                     var base = this;
-      
+
                     if (base.isTransition) {
                         return false;
                     }
-      
+
                     base.currentItem += base.options.scrollPerPage === true ? base.options.items : 1;
                     if (base.currentItem > base.maximumItem + (base.options.scrollPerPage === true ? (base.options.items - 1) : 0)) {
                         if (base.options.rewindNav === true) {
@@ -3047,14 +3050,14 @@ body {
                     }
                     base.goTo(base.currentItem, speed);
                 },
-      
+
                 prev : function (speed) {
                     var base = this;
-      
+
                     if (base.isTransition) {
                         return false;
                     }
-      
+
                     if (base.options.scrollPerPage === true && base.currentItem > 0 && base.currentItem < base.options.items) {
                         base.currentItem = 0;
                     } else {
@@ -3071,11 +3074,11 @@ body {
                     }
                     base.goTo(base.currentItem, speed);
                 },
-      
+
                 goTo : function (position, speed, drag) {
                     var base = this,
                         goToPixel;
-      
+
                     if (base.isTransition) {
                         return false;
                     }
@@ -3087,7 +3090,7 @@ body {
                     } else if (position <= 0) {
                         position = 0;
                     }
-      
+
                     base.currentItem = base.owl.currentItem = position;
                     if (base.options.transitionStyle !== false && drag !== "drag" && base.options.items === 1 && base.browser.support3d === true) {
                         base.swapSpeed(0);
@@ -3101,22 +3104,22 @@ body {
                         return false;
                     }
                     goToPixel = base.positionsInArray[position];
-      
+
                     if (base.browser.support3d === true) {
                         base.isCss3Finish = false;
-      
+
                         if (speed === true) {
                             base.swapSpeed("paginationSpeed");
                             window.setTimeout(function () {
                                 base.isCss3Finish = true;
                             }, base.options.paginationSpeed);
-      
+
                         } else if (speed === "rewind") {
                             base.swapSpeed(base.options.rewindSpeed);
                             window.setTimeout(function () {
                                 base.isCss3Finish = true;
                             }, base.options.rewindSpeed);
-      
+
                         } else {
                             base.swapSpeed("slideSpeed");
                             window.setTimeout(function () {
@@ -3135,7 +3138,7 @@ body {
                     }
                     base.afterGo();
                 },
-      
+
                 jumpTo : function (position) {
                     var base = this;
                     if (typeof base.options.beforeMove === "function") {
@@ -3155,19 +3158,19 @@ body {
                     base.currentItem = base.owl.currentItem = position;
                     base.afterGo();
                 },
-      
+
                 afterGo : function () {
                     var base = this;
-      
+
                     base.prevArr.push(base.currentItem);
                     base.prevItem = base.owl.prevItem = base.prevArr[base.prevArr.length - 2];
                     base.prevArr.shift(0);
-      
+
                     if (base.prevItem !== base.currentItem) {
                         base.checkPagination();
                         base.checkNavigation();
                         base.eachMoveUpdate();
-      
+
                         if (base.options.autoPlay !== false) {
                             base.checkAp();
                         }
@@ -3176,20 +3179,20 @@ body {
                         base.options.afterMove.apply(this, [base.$elem]);
                     }
                 },
-      
+
                 stop : function () {
                     var base = this;
                     base.apStatus = "stop";
                     window.clearInterval(base.autoPlayInterval);
                 },
-      
+
                 checkAp : function () {
                     var base = this;
                     if (base.apStatus !== "stop") {
                         base.play();
                     }
                 },
-      
+
                 play : function () {
                     var base = this;
                     base.apStatus = "play";
@@ -3201,7 +3204,7 @@ body {
                         base.next(true);
                     }, base.options.autoPlay);
                 },
-      
+
                 swapSpeed : function (action) {
                     var base = this;
                     if (action === "slideSpeed") {
@@ -3212,7 +3215,7 @@ body {
                         base.$owlWrapper.css(base.addCssSpeed(action));
                     }
                 },
-      
+
                 addCssSpeed : function (speed) {
                     return {
                         "-webkit-transition": "all " + speed + "ms ease",
@@ -3221,7 +3224,7 @@ body {
                         "transition": "all " + speed + "ms ease"
                     };
                 },
-      
+
                 removeTransition : function () {
                     return {
                         "-webkit-transition": "",
@@ -3230,7 +3233,7 @@ body {
                         "transition": ""
                     };
                 },
-      
+
                 doTranslate : function (pixels) {
                     return {
                         "-webkit-transform": "translate3d(" + pixels + "px, 0px, 0px)",
@@ -3240,20 +3243,20 @@ body {
                         "transform": "translate3d(" + pixels + "px, 0px,0px)"
                     };
                 },
-      
+
                 transition3d : function (value) {
                     var base = this;
                     base.$owlWrapper.css(base.doTranslate(value));
                 },
-      
+
                 css2move : function (value) {
                     var base = this;
                     base.$owlWrapper.css({"left" : value});
                 },
-      
+
                 css2slide : function (value, speed) {
                     var base = this;
-      
+
                     base.isCssFinish = false;
                     base.$owlWrapper.stop(true, true).animate({
                         "left" : value
@@ -3264,7 +3267,7 @@ body {
                         }
                     });
                 },
-      
+
                 checkBrowser : function () {
                     var base = this,
                         translate3D = "translate3d(0px, 0px, 0px)",
@@ -3273,7 +3276,7 @@ body {
                         asSupport,
                         support3d,
                         isTouch;
-      
+
                     tempElem.style.cssText = "  -moz-transform:" + translate3D +
                                           "; -ms-transform:"     + translate3D +
                                           "; -o-transform:"      + translate3D +
@@ -3282,15 +3285,15 @@ body {
                     regex = /translate3d\(0px, 0px, 0px\)/g;
                     asSupport = tempElem.style.cssText.match(regex);
                     support3d = (asSupport !== null && asSupport.length === 1);
-      
+
                     isTouch = "ontouchstart" in window || window.navigator.msMaxTouchPoints;
-      
+
                     base.browser = {
                         "support3d" : support3d,
                         "isTouch" : isTouch
                     };
                 },
-      
+
                 moveEvents : function () {
                     var base = this;
                     if (base.options.mouseDrag !== false || base.options.touchDrag !== false) {
@@ -3298,13 +3301,13 @@ body {
                         base.disabledEvents();
                     }
                 },
-      
+
                 eventTypes : function () {
                     var base = this,
                         types = ["s", "e", "x"];
-      
+
                     base.ev_types = {};
-      
+
                     if (base.options.mouseDrag === true && base.options.touchDrag === true) {
                         types = [
                             "touchstart.owl mousedown.owl",
@@ -3324,12 +3327,12 @@ body {
                             "mouseup.owl"
                         ];
                     }
-      
+
                     base.ev_types.start = types[0];
                     base.ev_types.move = types[1];
                     base.ev_types.end = types[2];
                 },
-      
+
                 disabledEvents :  function () {
                     var base = this;
                     base.$elem.on("dragstart.owl", function (event) { event.preventDefault(); });
@@ -3337,7 +3340,7 @@ body {
                         return $(e.target).is('input, textarea, select, option');
                     });
                 },
-      
+
                 gestures : function () {
                     /*jslint unparam: true*/
                     var base = this,
@@ -3353,9 +3356,9 @@ body {
                             dargging: null,
                             targetElement : null
                         };
-      
+
                     base.isCssFinish = true;
-      
+
                     function getTouches(event) {
                         if (event.touches !== undefined) {
                             return {
@@ -3363,7 +3366,7 @@ body {
                                 y : event.touches[0].pageY
                             };
                         }
-      
+
                         if (event.touches === undefined) {
                             if (event.pageX !== undefined) {
                                 return {
@@ -3379,7 +3382,7 @@ body {
                             }
                         }
                     }
-      
+
                     function swapEvents(type) {
                         if (type === "on") {
                             $(document).on(base.ev_types.move, dragMove);
@@ -3389,11 +3392,11 @@ body {
                             $(document).off(base.ev_types.end);
                         }
                     }
-      
+
                     function dragStart(event) {
                         var ev = event.originalEvent || event || window.event,
                             position;
-      
+
                         if (ev.which === 3) {
                             return false;
                         }
@@ -3406,46 +3409,46 @@ body {
                         if (base.isCss3Finish === false && !base.options.dragBeforeAnimFinish) {
                             return false;
                         }
-      
+
                         if (base.options.autoPlay !== false) {
                             window.clearInterval(base.autoPlayInterval);
                         }
-      
+
                         if (base.browser.isTouch !== true && !base.$owlWrapper.hasClass("grabbing")) {
                             base.$owlWrapper.addClass("grabbing");
                         }
-      
+
                         base.newPosX = 0;
                         base.newRelativeX = 0;
-      
+
                         $(this).css(base.removeTransition());
-      
+
                         position = $(this).position();
                         locals.relativePos = position.left;
-      
+
                         locals.offsetX = getTouches(ev).x - position.left;
                         locals.offsetY = getTouches(ev).y - position.top;
-      
+
                         swapEvents("on");
-      
+
                         locals.sliding = false;
                         locals.targetElement = ev.target || ev.srcElement;
                     }
-      
+
                     function dragMove(event) {
                         var ev = event.originalEvent || event || window.event,
                             minSwipe,
                             maxSwipe;
-      
+
                         base.newPosX = getTouches(ev).x - locals.offsetX;
                         base.newPosY = getTouches(ev).y - locals.offsetY;
                         base.newRelativeX = base.newPosX - locals.relativePos;
-      
+
                         if (typeof base.options.startDragging === "function" && locals.dragging !== true && base.newRelativeX !== 0) {
                             locals.dragging = true;
                             base.options.startDragging.apply(base, [base.$elem]);
                         }
-      
+
                         if ((base.newRelativeX > 8 || base.newRelativeX < -8) && (base.browser.isTouch === true)) {
                             if (ev.preventDefault !== undefined) {
                                 ev.preventDefault();
@@ -3454,19 +3457,19 @@ body {
                             }
                             locals.sliding = true;
                         }
-      
+
                         if ((base.newPosY > 10 || base.newPosY < -10) && locals.sliding === false) {
                             $(document).off("touchmove.owl");
                         }
-      
+
                         minSwipe = function () {
                             return base.newRelativeX / 5;
                         };
-      
+
                         maxSwipe = function () {
                             return base.maximumPixels + base.newRelativeX / 5;
                         };
-      
+
                         base.newPosX = Math.max(Math.min(base.newPosX, minSwipe()), maxSwipe());
                         if (base.browser.support3d === true) {
                             base.transition3d(base.newPosX);
@@ -3474,27 +3477,27 @@ body {
                             base.css2move(base.newPosX);
                         }
                     }
-      
+
                     function dragEnd(event) {
                         var ev = event.originalEvent || event || window.event,
                             newPosition,
                             handlers,
                             owlStopEvent;
-      
+
                         ev.target = ev.target || ev.srcElement;
-      
+
                         locals.dragging = false;
-      
+
                         if (base.browser.isTouch !== true) {
                             base.$owlWrapper.removeClass("grabbing");
                         }
-      
+
                         if (base.newRelativeX < 0) {
                             base.dragDirection = base.owl.dragDirection = "left";
                         } else {
                             base.dragDirection = base.owl.dragDirection = "right";
                         }
-      
+
                         if (base.newRelativeX !== 0) {
                             newPosition = base.getNewPosition();
                             base.goTo(newPosition, false, "drag");
@@ -3514,11 +3517,11 @@ body {
                     }
                     base.$elem.on(base.ev_types.start, ".owl-wrapper", dragStart);
                 },
-      
+
                 getNewPosition : function () {
                     var base = this,
                         newPosition = base.closestItem();
-      
+
                     if (newPosition > base.maximumItem) {
                         base.currentItem = base.maximumItem;
                         newPosition  = base.maximumItem;
@@ -3533,7 +3536,7 @@ body {
                         array = base.options.scrollPerPage === true ? base.pagesInArray : base.positionsInArray,
                         goal = base.newPosX,
                         closest = null;
-      
+
                     $.each(array, function (i, v) {
                         if (goal - (base.itemWidth / 20) > array[i + 1] && goal - (base.itemWidth / 20) < v && base.moveDirection() === "left") {
                             closest = v;
@@ -3554,7 +3557,7 @@ body {
                     });
                     return base.currentItem;
                 },
-      
+
                 moveDirection : function () {
                     var base = this,
                         direction;
@@ -3567,7 +3570,7 @@ body {
                     }
                     return direction;
                 },
-      
+
                 customEvents : function () {
                     /*jslint unparam: true*/
                     var base = this;
@@ -3593,7 +3596,7 @@ body {
                         base.jumpTo(item);
                     });
                 },
-      
+
                 stopOnHover : function () {
                     var base = this;
                     if (base.options.stopOnHover === true && base.browser.isTouch !== true && base.options.autoPlay !== false) {
@@ -3607,7 +3610,7 @@ body {
                         });
                     }
                 },
-      
+
                 lazyLoad : function () {
                     var base = this,
                         i,
@@ -3615,20 +3618,20 @@ body {
                         itemNumber,
                         $lazyImg,
                         follow;
-      
+
                     if (base.options.lazyLoad === false) {
                         return false;
                     }
                     for (i = 0; i < base.itemsAmount; i += 1) {
                         $item = $(base.$owlItems[i]);
-      
+
                         if ($item.data("owl-loaded") === "loaded") {
                             continue;
                         }
-      
+
                         itemNumber = $item.data("owl-item");
                         $lazyImg = $item.find(".lazyOwl");
-      
+
                         if (typeof $lazyImg.data("src") !== "string") {
                             $item.data("owl-loaded", "loaded");
                             continue;
@@ -3647,19 +3650,19 @@ body {
                         }
                     }
                 },
-      
+
                 lazyPreload : function ($item, $lazyImg) {
                     var base = this,
                         iterations = 0,
                         isBackgroundImg;
-      
+
                     if ($lazyImg.prop("tagName") === "DIV") {
                         $lazyImg.css("background-image", "url(" + $lazyImg.data("src") + ")");
                         isBackgroundImg = true;
                     } else {
                         $lazyImg[0].src = $lazyImg.data("src");
                     }
-      
+
                     function showImage() {
                         $item.data("owl-loaded", "loaded").removeClass("loading");
                         $lazyImg.removeAttr("data-src");
@@ -3672,7 +3675,7 @@ body {
                             base.options.afterLazyLoad.apply(this, [base.$elem]);
                         }
                     }
-      
+
                     function checkLazyImage() {
                         iterations += 1;
                         if (base.completeImg($lazyImg.get(0)) || isBackgroundImg === true) {
@@ -3683,15 +3686,15 @@ body {
                             showImage();
                         }
                     }
-      
+
                     checkLazyImage();
                 },
-      
+
                 autoHeight : function () {
                     var base = this,
                         $currentimg = $(base.$owlItems[base.currentItem]).find("img"),
                         iterations;
-      
+
                     function addHeight() {
                         var $currentItem = $(base.$owlItems[base.currentItem]).height();
                         base.wrapperOuter.css("height", $currentItem + "px");
@@ -3701,7 +3704,7 @@ body {
                             }, 0);
                         }
                     }
-      
+
                     function checkImage() {
                         iterations += 1;
                         if (base.completeImg($currentimg.get(0))) {
@@ -3712,7 +3715,7 @@ body {
                             base.wrapperOuter.css("height", ""); //Else remove height attribute
                         }
                     }
-      
+
                     if ($currentimg.get(0) !== undefined) {
                         iterations = 0;
                         checkImage();
@@ -3720,10 +3723,10 @@ body {
                         addHeight();
                     }
                 },
-      
+
                 completeImg : function (img) {
                     var naturalWidthType;
-      
+
                     if (!img.complete) {
                         return false;
                     }
@@ -3733,32 +3736,32 @@ body {
                     }
                     return true;
                 },
-      
+
                 onVisibleItems : function () {
                     var base = this,
                         i;
-      
+
                     if (base.options.addClassActive === true) {
                         base.$owlItems.removeClass("active");
                     }
                     base.visibleItems = [];
                     for (i = base.currentItem; i < base.currentItem + base.options.items; i += 1) {
                         base.visibleItems.push(i);
-      
+
                         if (base.options.addClassActive === true) {
                             $(base.$owlItems[i]).addClass("active");
                         }
                     }
                     base.owl.visibleItems = base.visibleItems;
                 },
-      
+
                 transitionTypes : function (className) {
                     var base = this;
                     //Currently available: "fade", "backSlide", "goDown", "fadeUp"
                     base.outClass = "owl-" + className + "-out";
                     base.inClass = "owl-" + className + "-in";
                 },
-      
+
                 singleItemTransition : function () {
                     var base = this,
                         outClass = base.outClass,
@@ -3768,9 +3771,9 @@ body {
                         prevPos = Math.abs(base.positionsInArray[base.currentItem]) + base.positionsInArray[base.prevItem],
                         origin = Math.abs(base.positionsInArray[base.currentItem]) + base.itemWidth / 2,
                         animEnd = 'webkitAnimationEnd oAnimationEnd MSAnimationEnd animationend';
-      
+
                     base.isTransition = true;
-      
+
                     base.$owlWrapper
                         .addClass('owl-origin')
                         .css({
@@ -3784,7 +3787,7 @@ body {
                             "left" : prevPos + "px"
                         };
                     }
-      
+
                     $prevItem
                         .css(transStyles(prevPos, 10))
                         .addClass(outClass)
@@ -3793,7 +3796,7 @@ body {
                             $prevItem.off(animEnd);
                             base.clearTransStyle($prevItem, outClass);
                         });
-      
+
                     $currentItem
                         .addClass(inClass)
                         .on(animEnd, function () {
@@ -3802,14 +3805,14 @@ body {
                             base.clearTransStyle($currentItem, inClass);
                         });
                 },
-      
+
                 clearTransStyle : function (item, classToRemove) {
                     var base = this;
                     item.css({
                         "position" : "",
                         "left" : ""
                     }).removeClass(classToRemove);
-      
+
                     if (base.endPrev && base.endCurrent) {
                         base.$owlWrapper.removeClass('owl-origin');
                         base.endPrev = false;
@@ -3817,7 +3820,7 @@ body {
                         base.isTransition = false;
                     }
                 },
-      
+
                 owlStatus : function () {
                     var base = this;
                     base.owl = {
@@ -3833,14 +3836,14 @@ body {
                         "dragDirection" : base.dragDirection
                     };
                 },
-      
+
                 clearEvents : function () {
                     var base = this;
                     base.$elem.off(".owl owl mousedown.disableTextSelect");
                     $(document).off(".owl owl");
                     $(window).off("resize", base.resizer);
                 },
-      
+
                 unWrap : function () {
                     var base = this;
                     if (base.$elem.children().length !== 0) {
@@ -3855,7 +3858,7 @@ body {
                         .attr("style", base.$elem.data("owl-originalStyles") || "")
                         .attr("class", base.$elem.data("owl-originalClasses"));
                 },
-      
+
                 destroy : function () {
                     var base = this;
                     base.stop();
@@ -3863,20 +3866,20 @@ body {
                     base.unWrap();
                     base.$elem.removeData();
                 },
-      
+
                 reinit : function (newOptions) {
                     var base = this,
                         options = $.extend({}, base.userOptions, newOptions);
                     base.unWrap();
                     base.init(options, base.$elem);
                 },
-      
+
                 addItem : function (htmlString, targetPosition) {
                     var base = this,
                         position;
-      
+
                     if (!htmlString) {return false; }
-      
+
                     if (base.$elem.children().length === 0) {
                         base.$elem.append(htmlString);
                         base.setVars();
@@ -3893,14 +3896,14 @@ body {
                     } else {
                         base.$userItems.eq(position).before(htmlString);
                     }
-      
+
                     base.setVars();
                 },
-      
+
                 removeItem : function (targetPosition) {
                     var base = this,
                         position;
-      
+
                     if (base.$elem.children().length === 0) {
                         return false;
                     }
@@ -3909,14 +3912,14 @@ body {
                     } else {
                         position = targetPosition;
                     }
-      
+
                     base.unWrap();
                     base.$userItems.eq(position).remove();
                     base.setVars();
                 }
-      
+
             };
-      
+
             $.fn.owlCarousel = function (options) {
                 return this.each(function () {
                     if ($(this).data("owl-init") === true) {
@@ -3928,9 +3931,9 @@ body {
                     $.data(this, "owlCarousel", carousel);
                 });
             };
-      
+
             $.fn.owlCarousel.options = {
-      
+
                 items : 5,
                 itemsCustom : false,
                 itemsDesktop : [1199, 4],
@@ -3940,45 +3943,45 @@ body {
                 itemsMobile : [479, 1],
                 singleItem : false,
                 itemsScaleUp : false,
-      
+
                 slideSpeed : 200,
                 paginationSpeed : 800,
                 rewindSpeed : 1000,
-      
+
                 autoPlay : false,
                 stopOnHover : false,
-      
+
                 navigation : false,
                 navigationText : ["prev", "next"],
                 rewindNav : true,
                 scrollPerPage : false,
-      
+
                 pagination : true,
                 paginationNumbers : false,
-      
+
                 responsive : true,
                 responsiveRefreshRate : 200,
                 responsiveBaseWidth : window,
-      
+
                 baseClass : "owl-carousel",
                 theme : "owl-theme",
-      
+
                 lazyLoad : false,
                 lazyFollow : true,
                 lazyEffect : "fade",
-      
+
                 autoHeight : false,
-      
+
                 jsonPath : false,
                 jsonSuccess : false,
-      
+
                 dragBeforeAnimFinish : true,
                 mouseDrag : true,
                 touchDrag : true,
-      
+
                 addClassActive : false,
                 transitionStyle : false,
-      
+
                 beforeUpdate : false,
                 afterUpdate : false,
                 beforeInit : false,
@@ -3990,38 +3993,38 @@ body {
                 afterLazyLoad: false
             };
         }(jQuery, window, document));
-      
-      
+
+
       </script>
       <script>
         /*
-      
+
         Vanilla Template
-      
+
         https://templatemo.com/tm-526-vanilla
-      
+
         */
-      
+
         jQuery(document).ready(function($) {
-      
+
           'use strict';
-      
+
             var top_header = $('.parallax-content');
             top_header.css({'background-position':'center center'}); // better use CSS
-      
+
             $(window).scroll(function () {
             var st = $(this).scrollTop();
             top_header.css({'background-position':'center calc(50% + '+(st*.5)+'px)'});
             });
-      
-      
+
+
             $('body').scrollspy({
                 target: '.fixed-side-navbar',
                 offset: 200
             });
-      
+
               // smoothscroll on sidenav click
-      
+
             $('.tabgroup > div').hide();
                 $('.tabgroup > div:first-of-type').show();
                 $('.tabs a').click(function(e){
@@ -4034,13 +4037,13 @@ body {
                 $this.addClass('active');
                 $(tabgroup).children('div').hide();
                 $(target).show();
-      
+
             })
-      
+
             var owl = $("#owl-testimonials");
-      
+
               owl.owlCarousel({
-      
+
                 pagination : true,
                 paginationNumbers: false,
                 autoPlay: 6000, //Set AutoPlay to 3 seconds
@@ -4049,13 +4052,13 @@ body {
                 itemsDesktopSmall : [900,2], // betweem 900px and 601px
                 itemsTablet: [600,1], //2 items between 600 and 0
                 itemsMobile : false // itemsMobile disabled - inherit from itemsTablet option
-      
+
             });
-      
-      
+
+
         });
-      
-      
+
+
       </script>
       <script>
           function openCity(cityName) {
@@ -4067,26 +4070,26 @@ body {
               document.getElementById(cityName).style.display = "block";
           }
       </script>
-      
+
       <script>
           $(document).ready(function(){
             // Add smooth scrolling to all links
             $(".fixed-side-navbar a, .primary-button a").on('click', function(event) {
-      
+
               // Make sure this.hash has a value before overriding default behavior
               if (this.hash !== "") {
                 // Prevent default anchor click behavior
                 event.preventDefault();
-      
+
                 // Store hash
                 var hash = this.hash;
-      
+
                 // Using jQuery's animate() method to add smooth page scroll
                 // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
                 $('html, body').animate({
                   scrollTop: $(hash).offset().top
                 }, 800, function(){
-      
+
                   // Add hash (#) to URL when done scrolling (default click behavior)
                   window.location.hash = hash;
                 });
@@ -4094,7 +4097,7 @@ body {
             });
           });
       </script>
-      
+
       {% endif %}
       {% endif %}
     {% block content %}

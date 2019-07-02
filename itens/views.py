@@ -42,8 +42,7 @@ class ItemListView(ListView):
             user_is_authenticated = request.user.is_authenticated
 
         if user_is_authenticated:
-            itens = self.model.objects.all()
-            # itens = self.get_queryset()
+            itens = self.get_queryset()
         else:
             itens = self.model.objects.all()
         title = "Itens"

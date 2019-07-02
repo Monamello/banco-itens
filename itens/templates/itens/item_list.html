@@ -84,15 +84,16 @@
 .item-modal-custom {
     background-color: white;
     z-index: 99;
-    margin: 0 auto;
     width: 50%;
     padding: 25px;
     border-radius: 25px;
-    top: 10px;
-    position: absolute;
-    left: 390px;
     box-shadow: 0px 8px 19px 0px #00000066;
     display: none;
+    margin: 0 auto;
+    position: absolute;
+    margin-left: 19%;
+    margin-right: 20%;
+    top: 10px;
 }
 .table-cabecalho {
     width: 100%;
@@ -139,8 +140,9 @@
   <div id="modalCriarItem" class="modalCriarItem">
       <button style="
         position: absolute;
-        right: 350px;
+        right: 412px;
         top: 50px;
+    "
     " class="btnClose" onclick="closeModal()"><i class="far fa-times-circle"></i></button></tr>
 
           <iframe id="encoder_iframe" height=90% width="50%" src="{% url 'item_create' %}" class="iframeModalCriarItem">
@@ -204,9 +206,13 @@
                   if (x.style.display === "none") {
                     x.style.display = "block";
                     y.style.display = "block";
+                    document.body.style.overflow = "hidden"
+                    document.body.scrollTop = document.documentElement.scrollTop = 0;
+                    // window.location.hash = '#' + idModal;
                   } else {
                     x.style.display = "none";
                     y.style.display = "none";
+                    document.body.style.overflow = "auto"
                   }
                 }
             </script>
@@ -239,7 +245,9 @@
           "class="{% if item.dificuldade == 'medio' %} medio {% endif %}{% if item.dificuldade == 'facil' %} facil {% endif %}{% if item.dificuldade == 'muito_facil' %} muito-facil {% endif %}{% if item.dificuldade == 'dificil' %} dificil {% endif %}{% if item.dificuldade == 'muito_dificil' %} muito-dificil {% endif %}"">{{item.dificuldade}}</b>
               <p>{{ item.enunciado }}</p>
               {% if item.suporte_imagem %}
-               <img src="media/{{item.suporte_imagem}}" alt="{{ item.enunciado }}">
+               <img src="media/{{item.suporte_imagem}}" alt="{{ item.enunciado }}" style="
+    max-width: 100%;
+">
 
               {% else %}
                 <p>{{ item.suporte_texto }}</p>
