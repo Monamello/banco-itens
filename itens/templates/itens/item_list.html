@@ -234,11 +234,12 @@
           </div>
           <div class="conteudo-modal">
               {% for curso in item.cursos.all %}
-              <b>{{curso.nome}}</b>
+                <b>{{curso.nome}}</b>
               {% endfor %}
-              <p style="
-              color: #8f8f8f;
-          ">{{item.unidades_curriculares.nome}}</p>
+
+              {% for und_curr in item.unidades_curriculares.all %}
+                <p style="color: #8f8f8f;">{{und_curr.nome}}</p>
+              {% endfor %}
               <b style="
               text-transform: uppercase;
               font-weight: bold;
