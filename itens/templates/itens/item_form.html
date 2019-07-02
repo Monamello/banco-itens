@@ -2,7 +2,7 @@
 {% block content %}
 {% if user.is_authenticated %}
 
-<div id="page-content-wrapper">
+<div>
     <style>
 
         *{
@@ -201,14 +201,48 @@ select {
     border-radius: 11px;
     border: none;
 }
+
   </style>
-  <div class="container-fluid content-itens">
-    <div>
-      <h1 class="mt-4" style="
-    font-weight: bolder;
-    color: #4e4c61;
-">Criar Item</h1>
-    </div>
+  <style type="text/css">
+    ::-webkit-scrollbar {
+      width: 9px;
+      height: 9px;
+    }
+    ::-webkit-scrollbar-button {
+      width: 0px;
+      height: 0px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #0ba9ec;
+      border: 0px none #ffffff;
+      border-radius: 50px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #25b7f5;
+    }
+    ::-webkit-scrollbar-thumb:active {
+      background: #0ba9c8;
+    }
+    ::-webkit-scrollbar-track {
+      background: #ffffff;
+      border: 0px none #ffffff;
+      border-radius: 34px;
+    }
+    ::-webkit-scrollbar-track:hover {
+      background: #ffffff;
+    }
+    ::-webkit-scrollbar-track:active {
+      background: #ffffff;
+    }
+    ::-webkit-scrollbar-corner {
+      background: transparent;
+    }
+    </style>
+  <div class="container-fluid content-itens" style="padding: 10px 30px;">
+  <div style="text-align: right;">
+  <input onchange='disableImageSuporte()' type="radio" name="tipoSuporte" value="text"> Texto
+  <input onchange='disableTextSuporte()'type="radio" name="tipoSuporte" value="image"> Imagem
+  </div>
     <div>
       <div class="row">
         <form method="post" enctype="multipart/form-data">
@@ -219,28 +253,94 @@ select {
     font-weight: bolder;
     color: #4e4c61;
 ">Criar as Alternativas</h1>
+<div style="text-align: right;">
+<input onchange='disableImage()' type="radio" name="tipo" value="text"> Texto
+<input onchange='disableText()'type="radio" name="tipo" value="image"> Imagem
+</div>
 <hr>
-          {% for i in i|rjust:5 %}
+          {% for i in alternativas %}
           <h4>Alternativa {{i}}</h4>
+          
           <p>
               <label for="id_correta{{ forloop.counter }}">Correta:</label>
-              <input type="checkbox" name="correta{{ forloop.counter }}" id="id_correta{{ forloop.counter }}">
+              <input type="checkbox" onclick='selectOnlyThis("{{forloop.counter}}")' name="correta" id="id_correta{{ forloop.counter }}">
             </p>
             <p>
               <label for="id_texto{{ forloop.counter }}">Texto:</label>
-              <textarea name="texto{{ forloop.counter }}" cols="40" rows="10" id="id_texto{{ forloop.counter }}"></textarea>
+              <textarea  disabled name="texto" cols="40" rows="10" id="id_texto{{ forloop.counter }}"></textarea>
             </p>
             <p>
               <label for="id_imagem{{ forloop.counter }}">Imagem:</label>
-              <input type="file" name="imagem{{ forloop.counter }}" accept="image/*" id="id_imagem{{ forloop.counter }}">
+              <input disabled type="file" name="imagem" accept="image/*" id="id_imagem{{ forloop.counter }}">
             </p>
           <hr>
           {% endfor %}
+
           <input class="btn-save" type="submit" value="Salvar"/>
           <script>
-            function disableInput(idDisable){
-              document.getElementById(idDisable).disabled = true;
+            
+            x = document.getElementsByName("suporte_imagem")
+            for(var i = 0; i < x.length; i++){
+              x[i].disabled= true;
             }
+            z = document.getElementsByName("suporte_texto")
+              for(var i = 0; i < z.length; i++){
+                z[i].disabled = true;
+              }
+
+            function disableInput(id){
+              document.getElementById(id).disabled = true;
+            }
+            
+            function disableImage(){
+             z = document.getElementsByName("texto")
+              for(var i = 0; i < z.length; i++){
+                z[i].disabled = false;
+              }
+              x = document.getElementsByName("imagem")
+              for(var i = 0; i < x.length; i++){
+                x[i].disabled= true;
+              }
+            }
+            function disableText() {
+              x = document.getElementsByName("imagem")
+              for(var i = 0; i < x.length; i++){
+                x[i].disabled= false;
+              }
+              z = document.getElementsByName("texto")
+                for(var i = 0; i < z.length; i++){
+                  z[i].disabled = true;
+                }
+            }
+            
+            function disableImageSuporte(){
+             z = document.getElementsByName("suporte_texto")
+              for(var i = 0; i < z.length; i++){
+                z[i].disabled = false;
+              }
+              x = document.getElementsByName("suporte_imagem")
+              for(var i = 0; i < x.length; i++){
+                x[i].disabled= true;
+              }
+            }
+            function disableTextSuporte() {
+              x = document.getElementsByName("suporte_imagem")
+              for(var i = 0; i < x.length; i++){
+                x[i].disabled= false;
+              }
+              z = document.getElementsByName("suporte_texto")
+                for(var i = 0; i < z.length; i++){
+                  z[i].disabled = true;
+                }
+            }
+
+            function selectOnlyThis(id) {
+              for (var i = 1;i <= 5; i++)
+                  {
+                      document.getElementById("id_correta"+ i).checked = false;
+                  }
+                  document.getElementById("id_correta"+ id).checked = true;
+              }
           </script>
         </form>
       </div>

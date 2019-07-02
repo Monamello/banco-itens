@@ -69,11 +69,20 @@ class MyItemListView(ListView):
 
 
     def get(self, request, *args, **kwargs):
-        itens = self.model.objects.all().filter(autor=request.user)
+        try:
+            user_is_authenticated = request.user.is_authenticated()
+        except TypeError:
+            user_is_authenticated = request.user.is_authenticated
+
+        if user_is_authenticated:
+            itens = self.get_queryset(request)
+        else:
+            itens = self.model.objects.all().filter(autor=request.user)
+        #itens = self.model.objects.all().filter(autor=request.user)
         title = "Meus Itens"
         return render(request, self.template_name, {'itens': itens, 'title' : title, 'isMyItens' : True})
 
-    def get_queryset(self):
+    def get_queryset(self,request):
         query = self.request.GET.get('q')
         filter = self.model.objects.all().filter(autor=request.user)
         if query:
