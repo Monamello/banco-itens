@@ -263,7 +263,7 @@ select {
 
           <p>
               <label for="id_correta{{ forloop.counter }}">Correta:</label>
-              <input type="checkbox" onclick='selectOnlyThis("{{forloop.counter}}")' name="correta" id="id_correta{{ forloop.counter }}">
+              <input type="checkbox" onclick='selectOnlyThis("{{forloop.counter}}")' name="correta{{ forloop.counter }}"  id="id_correta{{ forloop.counter }}">
             </p>
             <p>
               <label for="id_texto{{ forloop.counter }}">Texto:</label>
