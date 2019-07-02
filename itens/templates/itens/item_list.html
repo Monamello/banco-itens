@@ -73,26 +73,30 @@
   }
   .background-modal {
     background-color: #08080da3;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
     display: none;
     z-index: 2;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    outline: 0;
 }
-.item-modal-gambiarra {
-    background-color: white;
-    z-index: 99;
-    margin: 0 auto;
-    width: 50%;
-    padding: 25px;
-    border-radius: 25px;
-    top: 10px;
-    position: absolute;
-    left: 390px;
-    box-shadow: 0px 8px 19px 0px #00000066;
-    display: none;
+.item-modal-custom {
+  background-color: white;
+  z-index: 99;
+  width: 45%;
+  padding: 25px;
+  border-radius: 25px;
+  box-shadow: 0px 8px 19px 0px #00000066;
+  display: none;
+  margin: 0 auto;
+  position: absolute;
+  margin-left: 19%;
+  margin-right: 20%;
+  top: 10px;
+  padding-right: 0px;
 }
 .table-cabecalho {
     width: 100%;
@@ -124,41 +128,36 @@
     display: none;
 }
 .iframeModalCriarItem {
-    margin: 0 auto;
-    margin-left: 30%;
-    margin-top: 30px;
-    background-color: white;
-    border-radius: 25px;
+    width: 98%;
+    height: 89vh;
     border: none;
-    box-shadow: 0px 9px 20px #00000085;
-    
 }
+
   </style>
-  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js" integrity="sha256-my/qJggBjG+JoaR9MUSkYM+EpxVkxZRNn3KODs+el74=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
-  <div id="modalCriarItem" class="modalCriarItem">
-      <button style="
-        position: absolute;
-        right: 350px;
-        top: 50px;
-    " class="btnClose" onclick="openModalCreate()"><i class="far fa-times-circle"></i></button></tr>
-       
-          <iframe id="encoder_iframe" height=90% width="50%" src="{% url 'item_create' %}" class="iframeModalCriarItem">
-            </iframe>
-       
-      
+  <div id="bgModalCriarItem" class="background-modal"></div>
+  <div  id="modalCriarItem" class="item-modal-custom">
+    <h3 style="font-weight: bolder;color: #4e4c61;float: left;margin-left: 35px;">Criar Item</h3>
+    <button style="float: right;margin-right: 40px;outline:none" class="btnClose" onclick="closeModal()"><i class="far fa-times-circle"></i></button></tr>
+    <iframe id="encoder_iframe" src="{% url 'item_create' %}" class="iframeModalCriarItem"></iframe>
   </div>
   <script>
       function openModalCreate() {
         var x = document.getElementById("modalCriarItem");
+        bgModalCriarItem
         if (x.style.display === "none") {
           x.style.display = "block";
-          document.body.style.overflow = "hidden"
+          document.getElementById("bgModalCriarItem").style.display = "block";
         } else {
           x.style.display = "none";
-          document.body.style.overflow = "auto"
+          document.getElementById("bgModalCriarItem").style.display = "none";
         }
-      }
+      };
+      openModalCreate()
+      function closeModal(){
+        location.reload();
+      };
   </script>
   <div class="container-fluid content-itens">
     <div>
@@ -170,7 +169,7 @@
       <form action="{% url 'my_item_list' %}" method="get">
         <input type="text" name="q"  class="form-control input-banco-itens" placeholder="Pesquisar">
       </form>
-    </div> 
+    </div>
     {% else %}
     <div style="margin-top: 100px;">
       <form action="{% url 'item_list' %}" method="get">
@@ -179,20 +178,30 @@
     </div>
     {% endif %}
     <div class="itens-container">
-    <div class="row">
+    <div class="row" style="
+    background-color: #eaeaea;
+">
     {% for item in itens %}
         <div class="item mt-2 ml-2 col-lg-3 col-md-3 col-sm-3 " onclick="openModal('itemModal{{ item.id }}')">
           <div class="  ">
             <div class="item-dificuldade">
-              <b class="{% if item.dificuldade == 'medio' %} medio {% endif %}{% if item.dificuldade == 'facil' %} facil {% endif %}{% if item.dificuldade == 'muito_facil' %} muito-facil {% endif %}{% if item.dificuldade == 'dificil' %} dificil {% endif %}{% if item.dificuldade == 'muito_dificil' %} muito-dificil {% endif %}">{{ item.dificuldade }}</b>
+              <b class="{% if item.dificuldade == 'medio' %} medio {% endif %}{% if item.dificuldade == 'facil' %} facil {% endif %}{% if item.dificuldade == 'muito_facil' %} muito-facil {% endif %}{% if item.dificuldade == 'dificil' %} dificil {% endif %}{% if item.dificuldade == 'muito_dificil' %} muito-dificil {% endif %}">
+                {{ item.get_dificuldade_display }}
+              </b>
             </div>
             <div class="item-enunciado">
-              <p style="display: table-cell;vertical-align: middle;">{{ item.enunciado|slice:":205" }}...</p>
-              
+              <p style="display: table-cell;vertical-align: middle;font-size: larger;">{{ item.enunciado|slice:":143" }}...</p>
             </div>
-            
+
             <div class="item-more-details">
-              <button type="button" class="btn btn-cta-secondary" onclick="openModal('itemModal{{ item.id }}')"><a href="#">Mais Detalhes</a></button>
+              <button  style="
+              outline: none;
+              color: #0983b7;
+              font-weight: bold;
+          " type="button" class="btn btn-cta-secondary" onclick="openModal('itemModal{{ item.id }}')"><a style="
+                font-weight: 600;
+                text-decoration: blink;
+            ">Ver mais Detalhes</a></button>
             </div>
             <script>
                 function openModal(idModal) {
@@ -201,6 +210,7 @@
                   if (x.style.display === "none") {
                     x.style.display = "block";
                     y.style.display = "block";
+                    // window.location.hash = '#' + idModal;
                   } else {
                     x.style.display = "none";
                     y.style.display = "none";
@@ -210,12 +220,15 @@
           </div>
         </div>
         <div id="background-modal" class="background-modal"></div>
-        <div class="item-modal-gambiarra" tabindex="-1" role="dialog" id="itemModal{{ item.id }}">
+        <div class="item-modal-custom" tabindex="-1" role="dialog" id="itemModal{{ item.id }}">
           <div class="cabecalho-modal">
             <table class="table-cabecalho">
               <tr>
                 <td class="table-cabecalho-title">
-                    <h1>Detalhes</h1>
+                    <h1 style="
+                    font-weight: 900;
+                    color: #555867;
+                ">Detalhes</h1>
                 </td>
                 <td>
                     <button class="btnClose" onclick="openModal('itemModal{{ item.id }}')"><i class="far fa-times-circle"></i></button>
@@ -225,24 +238,23 @@
           </div>
           <div class="conteudo-modal">
               {% for curso in item.cursos.all %}
-              <b>{{curso.nome}}</b>
+                <p><b style="color: #9f9f9f;">{{curso.nome}}</b></p>
               {% endfor %}
-              <p style="
-              color: #8f8f8f;
-          ">{{item.unidades_curriculares.nome}}</p>
-              <b style="
-              text-transform: uppercase;
-              font-weight: bold;
-          "class="{% if item.dificuldade == 'medio' %} medio {% endif %}{% if item.dificuldade == 'facil' %} facil {% endif %}{% if item.dificuldade == 'muito_facil' %} muito-facil {% endif %}{% if item.dificuldade == 'dificil' %} dificil {% endif %}{% if item.dificuldade == 'muito_dificil' %} muito-dificil {% endif %}"">{{item.dificuldade}}</b>
+
+              {% for und_curr in item.unidades_curriculares.all %}
+                <p style="color: #8f8f8f;color: #b0b0b0;">{{und_curr.nome}}</p>
+              {% endfor %}
+              <p><b style="text-transform: uppercase;font-weight: bold;" class="{% if item.dificuldade == 'medio' %} medio {% endif %}{% if item.dificuldade == 'facil' %} facil {% endif %}{% if item.dificuldade == 'muito_facil' %} muito-facil {% endif %}{% if item.dificuldade == 'dificil' %} dificil {% endif %}{% if item.dificuldade == 'muito_dificil' %} muito-dificil {% endif %}"">{{ item.get_dificuldade_display }}</b>
+              </p>
               <p>{{ item.enunciado }}</p>
               {% if item.suporte_imagem %}
-               <img src="media/{{item.suporte_imagem}}" alt="{{ item.enunciado }}">
-                
+               <img src="media/{{item.suporte_imagem}}" alt="{{ item.enunciado }}" style="max-width: 40%;">
+
               {% else %}
                 <p>{{ item.suporte_texto }}</p>
-              {% endif %}  
-              
-              <p>{{ item.comando }}</p>  
+              {% endif %}
+
+              <p>{{ item.comando }}</p>
           </div>
           <div class="item-alternativas">
               {% for alternativa in item.alternativas.all %}
@@ -267,15 +279,86 @@
                     <td class="{% if alternativa.correta %} correta {% endif %}">
                         {{ alternativa.texto }}
                     </td>
-                  {% endif %}            
+                  {% endif %}
                 </tr>
               </table>
+              
               {% endfor %}
+              
+              <button onclick='capture("exportImage{{ item.id }}")' class="novo-item" style="
+              margin-right: 25px;
+          ">Exportar Imagem</button>
             </div>
         </div>
+        <div class="exportImage" tabindex="-1" role="dialog" id="exportImage{{ item.id }}" style="
+        width: 50%;
+        z-index: -1;
+        position: absolute;
+        background-color: white;
+        top: 0;
+    ">
+            <div class="conteudo-modal">
+                <p>{{ item.enunciado }}</p>
+                {% if item.suporte_imagem %}
+                 <img src="media/{{item.suporte_imagem}}" alt="{{ item.enunciado }}" style="max-width: 40%;">
+                {% else %}
+                  <p>{{ item.suporte_texto }}</p>
+                {% endif %}
+                <p>{{ item.comando }}</p>
+            </div>
+            <div class="item-alternativas">
+                {% for alternativa in item.alternativas.all %}
+                <table>
+                  <tr>
+                    {% if forloop.counter0 == 0 %}
+                    <td><b>A)</b></td>
+                    {% elif forloop.counter0 == 1 %}
+                    <td><b>B)</b></td>
+                    {% elif forloop.counter0 == 2 %}
+                    <td><b>C)</b></td>
+                    {% elif forloop.counter0 == 3 %}
+                    <td><b>D)</b></td>
+                    {% elif forloop.counter0 == 4 %}
+                    <td><b>E)</b></td>
+                    {% endif %}
+                    {% if alternativa.imagem %}
+                      <td>
+                        <img style="max-width: 150px;max-height: 150px;" src="media/{{ alternativa.imagem }}" alt="{{ alternativa.texto }}">
+                      </td>
+                    {% else %}
+                      <td>
+                          {{ alternativa.texto }}
+                      </td>
+                    {% endif %}
+                  </tr>
+                </table>
+                
+                {% endfor %}
+              </div>
+          </div>
     {% empty %}
-        <div>No articles yet.</div>
-    {% endfor %} 
+      <div style="
+      text-align: center;
+      width: 100%;
+  ">Não existem itens para a busca. Seja o primeiro a cadastrar!</div>
+    {% endfor %}
+    
+    <script>
+      function capture(id) {
+        
+        html2canvas(document.getElementById(id), {
+          scale: 10,
+          onrendered: function (canvas) { 
+            var a = document.createElement('a');
+            // toDataURL defaults to png, so we need to request a jpeg, then convert for file download.
+            a.href = canvas.toDataURL("image/png")
+            a.download = 'item.png';
+            a.click();
+          }
+        })
+      }
+    
+    </script>
     </div>
     </div>
   </div>

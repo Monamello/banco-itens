@@ -9,4 +9,3 @@ admin.site.register(Item)
 admin.site.register(Alternativa)
 admin.site.register(Cursos)
 admin.site.register(UnidadeCurricular)
-admin.site.site_header = 'CU'

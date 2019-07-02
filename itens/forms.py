@@ -17,7 +17,7 @@ class ItemForm(forms.ModelForm):
     # cursos = forms.MultipleChoiceField(
     #     choices=[(choice.pk, choice.nome) for choice in Cursos.objects.all()],
     #     label='Curso', widget=forms.SelectMultiple())
-    # unidades_curriculares = forms.ModelMultipleChoiceField(widget=forms.CheckboxSelectMultiple(), 
+    # unidades_curriculares = forms.ModelMultipleChoiceField(widget=forms.CheckboxSelectMultiple(),
     #                                             queryset=UnidadeCurricular.objects.all())
 
 
@@ -27,6 +27,6 @@ class AlternativaForm(forms.ModelForm):
         model = Alternativa
         exclude = ('item',)
 
-    texto = forms.CharField(widget=forms.Textarea)
+    texto = forms.CharField(widget=forms.Textarea, required=False)
     imagem = forms.ImageField(required=False)
     correta = forms.BooleanField(required=False)
